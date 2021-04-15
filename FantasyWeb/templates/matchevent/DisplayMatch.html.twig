@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+{% block sidemenunav %}
+    <!--************************************
+            SideBar Navigation Start
+    *************************************-->
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+    <div id="tg-sidenav" class="tg-sidenav">
+        <div id="tg-navscrollbar" class="tg-navscrollbar">
+            <strong class="tg-logo">
+                <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+            </strong>
+            <nav id="tg-nav" class="tg-nav">
+                <div id="tg-navigation" class="tg-navigation">
+                    <ul>
+                        <li >
+                            <a href="#">Ajouter Matchs</a>
+                        </li>
+                        <li >
+                            <a href="#">Ajouter Highlights</a>
+                        </li>
+                        <li><a href="#">Mon Profile</a></li>
+                        <li><a href="#">Déconnexion</a></li>
+
+
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+{% endblock %}
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+{% endblock %}
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>Modifier une équipe</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">Modifier une équipe</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+
+    <main id="tg-main" class="tg-main tg-haslayout">
+			<section class="tg-main-section tg-haslayout">
+				<div class="container">
+					<div class="tg-section-name">
+						<h2>match result</h2>
+					</div>
+					<div class="col-sm-11 col-xs-11 pull-right">
+						<div class="row">
+						{% for m in matchevent %}
+							<div class="tab-content tg-tabscontent">
+								<div role="tabpanel" class="tab-pane fade in active" id="one">
+									<div class="tg-matchresult">
+									<hr>
+										<div class="tg-box">
+											<div class="tg-score">
+											<h3>{{ m.titre }}</h3>
+											<a>&nbsp; &nbsp; {{ m.datematch }}</a>
+											</div>
+
+											<div class="tg-teamscore">
+												<strong class="tg-team-logo">
+													<a href="#"><img src="images/team-logo/logo-01.png" alt="image description"></a>
+												</strong>
+												<div class="tg-team-nameplusstatus">
+													<h4><a href="#">{{ m.idEquipea }}</a></h4>
+												</div>
+
+											</div>
+											<div class="tg-teamscore">
+												<strong class="tg-team-logo">
+													<a href="#">
+														<img src="images/team-logo/logo-02.png" alt="image description">
+													</a>
+												</strong>
+												<div class="tg-team-nameplusstatus">
+													<h4><a href="#">{{ m.idEquipeb }}</a></h4>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<br><br>
+
+
+							{% endfor %}
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+{% endblock %}

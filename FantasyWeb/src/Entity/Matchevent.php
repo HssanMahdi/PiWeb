@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Matchevent
@@ -23,7 +24,7 @@ class Matchevent
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Champs non valide")
      * @ORM\Column(name="titre", type="text", length=65535, nullable=false)
      */
     private $titre;
@@ -36,16 +37,16 @@ class Matchevent
     private $datematch;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_equipeA", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Equipe")
+     * @Assert\NotBlank(message= "Champs non valide")
+     * @ORM\JoinColumn(name="id_equipeA", referencedColumnName="id_equipe")
      */
     private $idEquipea;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_equipeB", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Equipe")
+     * @Assert\NotBlank(message= "Champs non valide")
+     * @ORM\JoinColumn(name="id_equipeB", referencedColumnName="id_equipe")
      */
     private $idEquipeb;
 
@@ -68,7 +69,7 @@ class Matchevent
     /**
      * @return string
      */
-    public function getTitre(): string
+    public function getTitre(): ?string
     {
         return $this->titre;
     }
@@ -98,36 +99,39 @@ class Matchevent
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getIdEquipea(): int
+    public function getIdEquipea()
     {
         return $this->idEquipea;
     }
 
     /**
-     * @param int $idEquipea
+     * @param mixed $idEquipea
      */
-    public function setIdEquipea(int $idEquipea): void
+    public function setIdEquipea($idEquipea): void
     {
         $this->idEquipea = $idEquipea;
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getIdEquipeb(): int
+    public function getIdEquipeb()
     {
         return $this->idEquipeb;
     }
 
     /**
-     * @param int $idEquipeb
+     * @param mixed $idEquipeb
      */
-    public function setIdEquipeb(int $idEquipeb): void
+    public function setIdEquipeb($idEquipeb): void
     {
         $this->idEquipeb = $idEquipeb;
     }
+
+
+
 
 
 }

@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+{% block sidemenunav %}
+    <!--************************************
+            SideBar Navigation Start
+    *************************************-->
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+    <div id="tg-sidenav" class="tg-sidenav">
+        <div id="tg-navscrollbar" class="tg-navscrollbar">
+            <strong class="tg-logo">
+                <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+            </strong>
+            <nav id="tg-nav" class="tg-nav">
+                <div id="tg-navigation" class="tg-navigation">
+                    <ul>
+                        <li >
+                            <a href="#">Ajouter Matchs</a>
+                        </li>
+                        <li >
+                            <a href="#">Ajouter Highlights</a>
+                        </li>
+                        <li><a href="#">Mon Profile</a></li>
+                        <li><a href="#">Déconnexion</a></li>
+
+
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+{% endblock %}
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+{% endblock %}
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>Ajouter une équipe</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">Ajouter une équipe</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <!--************************************
+                Top Rated Player Start
+        *************************************-->
+
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+                    <h2>Ajouter une équipe</h2>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-push-4 col-sm-11 pull-right">
+
+                    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                    <h6 style="color: firebrick">Titre</h6>
+                    <div class="form-group">
+                        {{ form_errors(form.titre) }}
+                        {{ form_widget(form.titre, { 'attr': {'class': 'single-input','placeholder': ' Titre '} }) }}
+                    </div>
+                    <h6 style="color: firebrick">Equipe A</h6>
+                    <div class="form-group">
+                    {{ form_errors(form.idEquipea) }}
+                        {{ form_widget(form.idEquipea, { 'attr': {'class': 'single-input'} }) }}
+                    </div>
+                    <h6 style="color: firebrick">Equipe B</h6>
+                    <div class="form-group">
+                    {{ form_errors(form.idEquipeb) }}
+                        {{ form_widget(form.idEquipeb, { 'attr': {'class': 'single-input'} }) }}
+                    </div>
+
+                    {{ form_widget(form.Ajouter, { 'attr': {'class': 'tg-btn'} }) }}
+
+                    {{ form_end(form) }}
+                    </div>
+
+            </div>
+        </section>
+    </main>
+
+{#{{ form_start(form) }}#}
+{#{{ form_widget(form) }}#}
+{#    <button class="tg-btn" >Ajouter</div>#}
+{#{{ form_end(form) }}#}
+
+{% endblock %}
