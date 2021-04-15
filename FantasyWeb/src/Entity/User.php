@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\UserPassword;
 
 /**
- * User
+ * AdherentType
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+* @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User
 {
@@ -23,21 +25,22 @@ class User
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Champ non valide")
      * @ORM\Column(name="nom_user", type="text", length=65535, nullable=false)
      */
     private $nomUser;
 
     /**
      * @var string
-     *
+     * *@Assert\NotBlank (message= "L'email est requis")
+     *@Assert\Email(message= "Email '{{ valeur }}'non valide")
      * @ORM\Column(name="email", type="text", length=65535, nullable=false)
      */
     private $email;
 
     /**
      * @var string|null
-     *
+     *@Assert\NotBlank (message= "Mot de passe non valide")
      * @ORM\Column(name="password", type="text", length=65535, nullable=true)
      */
     private $password;
@@ -49,24 +52,18 @@ class User
      */
     private $typeUser;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="score_user", type="integer", nullable=true)
-     */
-    private $scoreUser;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="solde", type="integer", nullable=true)
-     */
-    private $solde;
 
     public function getIdUser(): ?int
     {
         return $this->idUser;
     }
+    public function setIdUser(string $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
     public function getNomUser(): ?string
     {
@@ -116,29 +113,7 @@ class User
         return $this;
     }
 
-    public function getScoreUser(): ?int
-    {
-        return $this->scoreUser;
-    }
 
-    public function setScoreUser(?int $scoreUser): self
-    {
-        $this->scoreUser = $scoreUser;
-
-        return $this;
-    }
-
-    public function getSolde(): ?int
-    {
-        return $this->solde;
-    }
-
-    public function setSolde(?int $solde): self
-    {
-        $this->solde = $solde;
-
-        return $this;
-    }
 
 
 }
