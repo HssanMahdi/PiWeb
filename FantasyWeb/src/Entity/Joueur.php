@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Joueur
@@ -23,50 +24,51 @@ class Joueur
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Nom joueur non valide")
      * @ORM\Column(name="nom_joueur", type="text", length=65535, nullable=false)
      */
     private $nomJoueur;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Prenom joueur non valide")
      * @ORM\Column(name="prenom_joueur", type="text", length=65535, nullable=false)
      */
     private $prenomJoueur;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Position non valide")
      * @ORM\Column(name="position", type="text", length=65535, nullable=false)
      */
     private $position;
 
     /**
      * @var int|null
-     *
+     * @Assert\NotBlank(message= "Score non valide")
      * @ORM\Column(name="score_joueur", type="integer", nullable=true)
      */
     private $scoreJoueur;
 
     /**
      * @var string|null
-     *
+     * @Assert\NotBlank(message= "Logo non valide")
      * @ORM\Column(name="logo_joueur", type="text", length=65535, nullable=true)
      */
     private $logoJoueur;
 
     /**
      * @var int|null
-     *
+     * @Assert\NotBlank(message= "Prix non valide")
      * @ORM\Column(name="prix_joueur", type="integer", nullable=true)
      */
     private $prixJoueur;
 
+
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="id_equipe", type="integer", nullable=true)
+     * @Assert\NotBlank(message= "Champ non valide")
+     * @ORM\ManyToOne(targetEntity="Equipe")
+     * @ORM\JoinColumn(name="id_equipe", referencedColumnName="id_equipe")
      */
     private $idEquipe;
 
@@ -147,17 +149,23 @@ class Joueur
         return $this;
     }
 
-    public function getIdEquipe(): ?int
+    /**
+     * @return mixed
+     */
+    public function getIdEquipe()
     {
         return $this->idEquipe;
     }
 
-    public function setIdEquipe(?int $idEquipe): self
+    /**
+     * @param mixed $idEquipe
+     */
+    public function setIdEquipe($idEquipe): void
     {
         $this->idEquipe = $idEquipe;
-
-        return $this;
     }
+
+
 
 
 }

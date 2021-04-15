@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Equipe
@@ -23,21 +24,21 @@ class Equipe
 
     /**
      * @var string
-     *
+         * @Assert\NotBlank(message= "Nom équipe non valide")
      * @ORM\Column(name="nom_equipe", type="text", length=65535, nullable=false)
      */
     private $nomEquipe;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Logo non valide")
      * @ORM\Column(name="logo_equipe", type="text", length=65535, nullable=false)
      */
     private $logoEquipe;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Champ stade non valide")
      * @ORM\Column(name="stade", type="text", length=65535, nullable=false)
      */
     private $stade;
@@ -82,6 +83,9 @@ class Equipe
 
         return $this;
     }
-
+    public function __toString()
+    {
+        return (string) $this->getNomEquipe();
+    }
 
 }
