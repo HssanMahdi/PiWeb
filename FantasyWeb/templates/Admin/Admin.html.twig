@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+{% block sidemenunav %}
+    <!--************************************
+            SideBar Navigation Start
+    *************************************-->
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+    <div id="tg-sidenav" class="tg-sidenav">
+        <div id="tg-navscrollbar" class="tg-navscrollbar">
+            <strong class="tg-logo">
+                <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+            </strong>
+            <nav id="tg-nav" class="tg-nav">
+                <div id="tg-navigation" class="tg-navigation">
+                    <ul>
+                        <li >
+                            <a href="#">Manager Football</a>
+                        </li>
+                        <li >
+                            <a href="#">Admin Systéme</a>
+                        </li>
+                        <li><a href="#">Déconnexion</a></li>
+
+
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+{% endblock %}
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+{% endblock %}
