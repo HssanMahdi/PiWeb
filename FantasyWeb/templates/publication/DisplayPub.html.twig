@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>La liste des Highlights</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">La liste des Highlights</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+<section class="tg-main-section tg-haslayout">
+				<div class="container">
+					<div class="tg-section-name">
+						<h2>Highlights</h2>
+					</div>
+					<div class="col-sm-11 col-xs-11 pull-right">
+						<div class="row">
+							<div class="tg-tickets">
+							{% for e in publication %}
+								<div class="tg-ticket">
+									<time class="tg-matchdate" datetime="2016-05-03"> <img src="{{ asset('images/playVid.png') }}"  alt="image description" height="100px"></time>
+									<div class="tg-matchdetail">
+										<span class="tg-theme-tag">Vidéo</span>
+										<h4>{{e.getVideoname()}}</h4>
+										<ul class="tg-matchmetadata">
+											<li><time >{{e.getDatePub()}}</time></li>
+
+										</ul>
+									</div>
+									<div class="tg-btnsbox">
+										<a class="tg-btn" href="{{ path('PlayVideo',{'id':e.idvideo}) }}">Lire la vidéo</a>
+
+									</div>
+								</div>
+								 {% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+    </main>
+{% endblock %}
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+{% block sidemenunav %}
+    <!--************************************
+            SideBar Navigation Start
+    *************************************-->
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+    <div id="tg-sidenav" class="tg-sidenav">
+        <div id="tg-navscrollbar" class="tg-navscrollbar">
+            <strong class="tg-logo">
+                <a href="#"><img src="{{ asset('images/logo.png')}}" alt="image description"></a>
+            </strong>
+            <nav id="tg-nav" class="tg-nav">
+                <div id="tg-navigation" class="tg-navigation">
+                    <ul>
+                        <li >
+                            <a href="#">Ajouter Matchs</a>
+                        </li>
+                        <li >
+                            <a href="#">Ajouter Highlights</a>
+                        </li>
+                        <li><a href="#">Mon Profile</a></li>
+                        <li><a href="#">Déconnexion</a></li>
+
+
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+{% endblock %}
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+
+
+{% endblock %}

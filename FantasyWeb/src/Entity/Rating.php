@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Rating
- *
- * @ORM\Table(name="rating", indexes={@ORM\Index(name="FK_joueur", columns={"id_joueur"}), @ORM\Index(name="FK_rating", columns={"id_user"})})
  * @ORM\Entity(repositoryClass="App\Repository\RatingRepository")
+ * @ORM\Table(name="rating", indexes={@ORM\Index(name="FK_joueur", columns={"id_joueur"}), @ORM\Index(name="FK_rating", columns={"id_user"})})
+ * @ORM\Entity
  */
 class Rating
 {
@@ -42,46 +42,71 @@ class Rating
      */
     private $idJoueur;
 
-    public function getIdRating(): ?int
+    /**
+     * @return int
+     */
+    public function getIdRating(): int
     {
         return $this->idRating;
     }
 
+    /**
+     * @param int $idRating
+     */
+    public function setIdRating(?int $idRating): void
+    {
+        $this->idRating = $idRating;
+    }
+
+    /**
+     * @return float
+     */
     public function getRatingvalue(): ?float
     {
         return $this->ratingvalue;
     }
 
-    public function setRatingvalue(float $ratingvalue): self
+    /**
+     * @param float $ratingvalue
+     */
+    public function setRatingvalue(?float $ratingvalue): void
     {
         $this->ratingvalue = $ratingvalue;
-
-        return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getIdUser(): ?int
     {
         return $this->idUser;
     }
 
-    public function setIdUser(int $idUser): self
+    /**
+     * @param int $idUser
+     */
+    public function setIdUser(?int $idUser): void
     {
         $this->idUser = $idUser;
-
-        return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getIdJoueur(): ?int
     {
         return $this->idJoueur;
     }
 
-    public function setIdJoueur(int $idJoueur): self
+    /**
+     * @param int $idJoueur
+     */
+    public function setIdJoueur(?int $idJoueur): void
     {
         $this->idJoueur = $idJoueur;
-
-        return $this;
     }
+
+
 
 
 }

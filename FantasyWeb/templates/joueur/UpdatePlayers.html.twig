@@ -1,0 +1,83 @@
+{% extends 'baseDashboard.html.twig' %}
+{% block westpage %}
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Basic Form Inputs card start -->
+            <div class="card">
+                <div class="card-header">
+                    <h5>Ajouter un joueur</h5>
+
+                </div>
+                <div class="card-block">
+                    <h4 class="sub-title">Remplir Les Champs</h4>
+                    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Nom Joueur</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.nomJoueur) }}
+                            {{ form_widget(form.nomJoueur, { 'attr': {'class': 'form-control','placeholder': ' Nom '} }) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Prenom Joueur</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.prenomJoueur) }}
+                            {{ form_widget(form.prenomJoueur, { 'attr': {'class': 'form-control','placeholder': 'Prenom'} }) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Position</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.position) }}
+                            {{ form_widget(form.position, { 'attr': {'class':'form-control','placeholder': 'Position'} }) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Score</label>
+                        <div class="col-sm-8">
+
+                            {{ form_errors(form.scoreJoueur) }}
+                            {{ form_widget(form.scoreJoueur, { 'attr': {'class': 'form-control','placeholder': 'Score'} }) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Image Joueur</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.logoJoueur) }}
+                            {{ form_widget(form.logoJoueur, { 'attr': {'class': 'form-control','placeholder': 'Logo Joueur'} }) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Prix</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.prixJoueur) }}
+                            {{ form_widget(form.prixJoueur, { 'attr': {'class': 'form-control','placeholder': 'Prix'} }) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Equipe</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.idEquipe) }}
+                            {{ form_widget(form.idEquipe, { 'attr': {'class': 'form-control','placeholder': 'Equipe'} }) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Vous Êtes Un Robot ?</label>
+                        <div class="col-sm-8">
+                            {{ form_widget(form.captchaCode, { 'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+
+                    <div align="center">
+                        {{ form_widget(form.Valider, { 'attr': {'class': 'btn btn-outline-danger'} }) }}
+                    </div>
+
+                    {{ form_end(form) }}
+
+
+                </div>
+            </div>
+            <!-- Basic Form Inputs card end -->
+        </div>
+    </div>
+{% endblock %}

@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Equipe
- *
+ * @ORM\Entity(repositoryClass="App\Repository\EquipeRepository")
  * @ORM\Table(name="equipe")
  * @ORM\Entity(repositoryClass="App\Repository\EquipeRepository")
  */
@@ -24,14 +24,14 @@ class Equipe
 
     /**
      * @var string
-         * @Assert\NotBlank(message= "Nom équipe non valide")
+     * @Assert\NotBlank(message= "Nom non valide")
      * @ORM\Column(name="nom_equipe", type="text", length=65535, nullable=false)
      */
     private $nomEquipe;
 
     /**
      * @var string
-     * @Assert\NotBlank(message= "Logo non valide")
+     *
      * @ORM\Column(name="logo_equipe", type="text", length=65535, nullable=false)
      */
     private $logoEquipe;
@@ -53,7 +53,7 @@ class Equipe
         return $this->nomEquipe;
     }
 
-    public function setNomEquipe(string $nomEquipe): self
+    public function setNomEquipe(?string $nomEquipe): self
     {
         $this->nomEquipe = $nomEquipe;
 
@@ -65,7 +65,7 @@ class Equipe
         return $this->logoEquipe;
     }
 
-    public function setLogoEquipe(string $logoEquipe): self
+    public function setLogoEquipe(?string $logoEquipe): self
     {
         $this->logoEquipe = $logoEquipe;
 

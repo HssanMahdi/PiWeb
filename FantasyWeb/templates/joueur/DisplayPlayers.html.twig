@@ -38,19 +38,28 @@
                                     {% for j in joueur %}
                                     <div class="swiper-slide">
                                         <figure class="tg-postimg">
-                                             <img src="{{ asset('uploads/'~j.logoJoueur) }}"  alt="image description" height="100px">
+                                             <img src="{{ asset('uploads/'~j.logoJoueur) }}"  alt="image description" height="30px">
                                             <!--<div class="tg-img-hover">-->
                                             <figcaption class="tg-img-hover">
                                                 <div class="tg-theme-tag">{{j.position}}</div>
                                                 <div class="tg-section-heading">
                                                    <H3><a href="#">{{j.nomJoueur}} {{j.prenomJoueur}}</a></H3>
-                                                     <span class="tg-stars"><span></span></span>
+
+                                                   <div class="rating" role="optgroup">
+                                                   {% if j.rating !=0 %}
+                                                   {% for i in 1..j.rating  %}
+                                                      <i class="fa fa-star rating-star"  role="radio"></i>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    </div>
                                                 </div>
                                                 <div class="tg-description">
                                                     <ul class="tg-playernameplusgoadtime">
                                                         <li>Prix : {{j.prixJoueur}} </li>
                                                         <li>Score : {{j.scoreJoueur}} </li>
                                                         <li>Equipe : {{j.idEquipe}} </li>
+                                                        <li><a href="{{ path('AddRates',{'id':j.idJoueur}) }}">Evaluer</a></li>
+
                                                     </ul>
                                                 </div>
 
@@ -71,6 +80,7 @@
             </div>
         </section>
     </main>
+
 {% endblock %}
 {% block aelim %}
     <div class="tg-colhalf pull-right">

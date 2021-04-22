@@ -47,4 +47,12 @@ class JoueurRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function deleteJoueurdEquipe($id)
+    {
+            $query = $this->getEntityManager()
+                ->createQuery("DELETE FROM App:Joueur c WHERE c.idEquipe ='$id' ");
+            $query->execute();
+    }
+
+
 }

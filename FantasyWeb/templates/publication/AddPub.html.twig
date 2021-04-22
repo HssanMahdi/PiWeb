@@ -5,36 +5,28 @@
             <!-- Basic Form Inputs card start -->
             <div class="card">
                 <div class="card-header">
-                    <h5>Ajouter une Equipe</h5>
+                    <h5>Ajouter une Highlights</h5>
 
                 </div>
                 <div class="card-block">
                     <h4 class="sub-title">Remplir Les Champs</h4>
                     {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Nom Equipe</label>
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Nom Highlights</label>
                         <div class="col-sm-8">
-                            {{ form_errors(form.nomEquipe) }}
-                            {{ form_widget(form.nomEquipe, { 'attr': {'class': 'form-control','placeholder': ' Nom '} }) }}
+                            {{ form_errors(form.videoname) }}
+                            {{ form_widget(form.videoname, { 'attr': {'class': 'form-control','placeholder': ' Nom '} }) }}
                         </div>
                     </div>
                     <br>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Image Equipe</label>
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Téleverser Highlights</label>
                         <div class="col-sm-8">
-                            {{ form_errors(form.logoEquipe) }}
-                            {{ form_widget(form.logoEquipe, { 'attr': {'class': 'form-control','placeholder': 'Image'} }) }}
+                            {{ form_errors(form.url) }}
+                            {{ form_widget(form.url, { 'attr': {'class': 'form-control','placeholder': 'Vidéo'} }) }}
                         </div>
                     </div>
                     <br>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Stade</label>
-                        <div class="col-sm-8">
-                            {{ form_errors(form.stade) }}
-                            {{ form_widget(form.stade, { 'attr': {'class': 'form-control','placeholder': 'Stade'} }) }}
-                        </div>
-                    </div>
-
 
 
                     <div align="center">

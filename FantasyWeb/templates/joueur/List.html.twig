@@ -1,0 +1,54 @@
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+{% block body %}
+
+
+    <h1 align="center" style="color: #cb2027">La liste des joueurs</h1>
+
+<hr>
+    <br><br>
+
+<table class="table" border="1px" align="center">
+
+        <thead>
+        <tr>
+
+        <td><h4>Nom</h4></td>
+        <td><h4>Prenom</h4></td>
+        <td><h4>Score</h4></td>
+        <td><h4>Prix</h4></td>
+        <td><h4>Position</h4></td>
+        <td><h4>Equipe</h4></td>
+        </tr>
+        </thead>
+    <tbody>
+    {% for j in joueur %}
+        <tr>
+
+            <td> {{ j.nomJoueur }} </td>
+            <td> {{ j.prenomJoueur }}</td>
+            <td> {{ j.scoreJoueur }}</td>
+            <td>{{ j.prixJoueur }} </td>
+            <td>{{ j.position }} </td>
+            <td>{{ j.idEquipe }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endblock %}

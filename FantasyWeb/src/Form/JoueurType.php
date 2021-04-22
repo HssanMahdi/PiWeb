@@ -13,6 +13,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
+use Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptcha;
 
 class JoueurType extends AbstractType
 {
@@ -30,7 +32,21 @@ class JoueurType extends AbstractType
                 ]])
             ->add('scoreJoueur',IntegerType::class)
 //            ->add('logoJoueur',FileType::class)
-            ->add('logoJoueur',TextType::class)
+
+            ->add('logoJoueur',FileType::class,[
+
+// unmapped means that this field is not associated to any entity property
+                'mapped' => false,
+
+// make it optional so you don't have to re-upload the PDF file
+// every time you edit the Product details
+                'required' => false,
+
+// unmapped fields can't define their validation using annotations
+// in the associated entity, so you can use the PHP constraint classes
+                'attr' => ['class' => 'custom-file-input'],
+
+            ])
             ->add('prixJoueur',IntegerType::class)
 
         ->add('idEquipe', EntityType::class, [
@@ -42,7 +58,15 @@ class JoueurType extends AbstractType
         }
 
     ])
-            ->add('ajouter', SubmitType::class);
+            ->add('Valider', SubmitType::class)
+            ->add('captchaCode', CaptchaType::class, array(
+                'captchaConfig' => 'ExampleCaptchaUserRegistration',
+                'constraints' => [
+                    new ValidCaptcha([
+                        'message' => 'Invalid captcha, please try again',
+                    ]),
+                ],
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)
