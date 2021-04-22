@@ -26,7 +26,7 @@ class ManagerFootballController extends AbstractController
     /**
      * @param UserRepository $repo
      * @return Response
-     * @Route ("/AfficheManager")
+     * @Route ("/AfficheManager", name="AfficheManager")
      */
 
     public function AfficheManager(UserRepository $repo){
@@ -50,18 +50,19 @@ class ManagerFootballController extends AbstractController
     /**
      *   * @param Request $request
      * @return Response
-     * @Route ("manager_football/Add")
+     * @Route ("manager_football/Add", name="Add3")
      */
     public function Add(Request $request){
         $ManagerFootball=new ManagerFootball() ;
         $ManagerFootball->setTypeUser('MF');
         $form = $this->createForm(ManagerType::Class,$ManagerFootball);
-        $form->add('Ajouter',SubmitType::Class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($ManagerFootball);
             $entityManager->flush();
+            return $this->redirectToRoute('AfficheManager');
+
         }
         return $this->render('manager_football/Add.html.twig', [
             'form'=>$form->createView()
@@ -70,13 +71,12 @@ class ManagerFootballController extends AbstractController
     /**
      *@param Request $request
      * @return Response
-     * @Route ("/Update/{idUser}", name="update")
+     * @Route ("manager_football/Update/{idUser}", name="update")
      */
-    public function Update(UserRepository $repo,$idUser,Request $request)
+    public function Update(UserRepository $repository,$idUser,Request $request)
     {
-        $manager=$repo->find($idUser);
+        $manager=$repository->find($idUser);
         $form=$this->createForm(ManagerType::class,$manager);
-        $form->add('Update',SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted()&&$form->isValid()){
             $em=$this->getDoctrine()->getManager();
@@ -85,6 +85,16 @@ class ManagerFootballController extends AbstractController
         }
         return $this->render('manager_football/Update.html.twig',
             ['form'=>$form->createView()]);
+    }
+    /**
+     * @Route ("manager_football/recherche",name="recherche")
+     */
+    public function recherche(UserRepository $repository,Request $request){
+        $data=$request->get('search1');
+        $User=$repository->findBy(['nomUser'=>$data]);
+        return $this->render('manager_football/DisplayManager.html.twig',['user'=>$User,
+        ]);
+
     }
 
 }

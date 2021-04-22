@@ -26,11 +26,11 @@ class AdminSystemeController extends AbstractController
     /**
      * @param UserRepository $repo
      * @return Response
-     * @Route ("/AfficheAd")
+     * @Route ("/AfficheAd",name="AfficheAd")
      */
 
-    public function AfficheAd(UserRepository $repo){
-        $User=$repo->findBy(['typeUser'=> 'adS']);
+    public function AfficheAd(UserRepository $repository){
+        $User=$repository->findBy(['typeUser'=> 'adS']);
         return $this->render( 'admin_systeme/DisplayAdmin.html.twig',['user'=>$User,
         ]);
     }
@@ -49,18 +49,18 @@ class AdminSystemeController extends AbstractController
     /**
      * @param Request $request
      * @return Response
-     * @Route ("admin_systeme/Add")
+     * @Route ("admin_systeme/Add", name="Add1")
      */
     public function Add(Request $request){
         $AdminSysteme=new AdminSysteme();
         $AdminSysteme->setTypeUser('adS');
         $form = $this->createForm(AdminType::class,$AdminSysteme);
-        $form->add('Ajouter',SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($AdminSysteme);
             $entityManager->flush();
+            return $this->redirectToRoute('AfficheAd');
         }
         return $this->render('admin_systeme/Add.html.twig', [
             'form'=>$form->createView()
@@ -70,25 +70,31 @@ class AdminSystemeController extends AbstractController
     /**
      * @param Request $request
      * @return Response
-     * @Route ("/admin_systeme/Update/{idUser}",name="up")
+     * @Route ("/Update/{idUser}",name="up")
      */
 
     public function Update(UserRepository $repository,$idUser,Request $request){
-        $admin_systeme=$repository->find($idUser);
-        $form=$this->createForm(AdminType::class,$admin_systeme);
-        $form->add('Update',SubmitType::class);
+        $admin=$repository->find($idUser);
+        $form=$this->createForm(AdminType::class,$admin);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($admin_systeme);
+            $entityManager->persist($admin);
             $entityManager->flush();
             return $this->redirectToRoute("AfficheAd");
         }
-        return  $this->render('admin_systeme/Update.html.twig',
+        return  $this->render('admin_systeme/UpdateAd.html.twig',
             [
                 'form'=>$form->createView()
             ]);
     }
+    /**
+     * @Route ("admin_systeme/recherche",name="recherche")
+     */
+    public function recherche(UserRepository $repository,Request $request){
+        $data=$request->get('search');
+        $User=$repository->findBy(['nomUser'=>$data]);
+        return $this->render('admin_systeme/DisplayAdmin.html.twig',['user'=>$User,
+        ]);
 
-
-}
+    }}

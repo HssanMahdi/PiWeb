@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Adherent;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,25 +19,32 @@ class AdherentType extends AbstractType
     {
         $builder
             ->add('nomUser',TextType::Class,[
-                'label'=>'Nom',
+
                 'attr'=>[
                     'placeholder'=> 'Entrer votre nom'
                 ]
             ])
             ->add('email',EmailType::class,[
-                'label'=>'Email',
+
                 'attr'=>[
                     'placeholder'=> 'Entrer votre email'
                 ]
             ])
             ->add('password', PasswordType::class, [
-                'mapped' => false,
+
                 'attr'=>[
-                    'placeholder'=> 'Entrer votre Password'
+                    'placeholder'=> 'Entrer votre mdp'
                 ],
 
             ])
+            ->add('confirm_password', PasswordType::class,[
 
+                    'attr'=>[
+                        'placeholder'=> 'Répetez votre mdp'
+                    ]
+
+            ])
+              ->add('Valider',SubmitType::class)
 
         ;
 

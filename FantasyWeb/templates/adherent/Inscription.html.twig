@@ -1,0 +1,408 @@
+<!doctype html>
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zxx"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang="zxx"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang="zxx"> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang="zxx"> <!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Soccer BootStrap HTML5 CSS3 Theme</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href= "{{ asset('css/normalize.css') }}">
+    <link rel="stylesheet" href=  "{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href=    "{{ asset('css/transitions.css') }}">
+    <link rel="stylesheet" href=   "{{ asset('css/prettyPhoto.css') }}">
+    <link rel="stylesheet" href= "{{ asset('css/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
+    <link rel="stylesheet" href= "{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href= "{{ asset('css/owl.theme.css') }}">
+    <link rel="stylesheet" href= "{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href= "{{ asset('ss/customScrollbar.css') }}">
+    <link rel="stylesheet" href= "{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href=  "{{ asset('css/main.css') }}" >
+    <link rel="stylesheet" href= "{{ asset('css/color.css') }}" >
+    <link rel="stylesheet" href= "{{ asset('css/responsive.css') }}">
+    <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!--************************************
+        Wrapper Start
+*************************************-->
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+    <!--************************************
+            Mobile Menu Start
+    *************************************-->
+    <div id="tg-navigationm-mobile" class="tg-navigationm-mobile tg-navigation collapse navbar-collapse">
+        <span id="tg-close" class="tg-close fa fa-close"></span>
+        <div class="tg-colhalf">
+            <ul>
+                <li>
+                    <a href="#">Main</a>
+                    <ul class="tg-dropdown-menu">
+                        <li><a href="index-2.html">home1</a></li>
+                        <li><a href="index2.html">home2</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">team</a>
+                    <ul class="tg-dropdown-menu">
+                        <li><a href="playergrid-v1.html">playergrid-v1</a></li>
+                        <li><a href="playergrid-v2.html">playergrid-v2</a></li>
+                        <li><a href="playerdetail.html">playergrid detail</a></li>
+                    </ul>
+                </li>
+                <li><a href="buyticket.html">Buy Tickets</a></li>
+                <li>
+                    <a href="#">Match Results</a>
+                    <ul class="tg-dropdown-menu">
+                        <li><a href="matchresult.html">match result</a></li>
+                        <li><a href="matchresultdetail.html">match result detail</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="tg-colhalf">
+            <ul>
+                <li>
+                    <a href="#">fixtures</a>
+                    <ul class="tg-dropdown-menu">
+                        <li><a href="fixtures.html">fixtures</a></li>
+                        <li><a href="fixturedetail.html">fixture detail</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">pro soccer media</a>
+                    <ul class="tg-dropdown-menu">
+                        <li><a href="soccermedia-1.html">pro soccer media1</a></li>
+                        <li><a href="soccermedia-2.html">pro soccer media2</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="contactus.html">Contact</a></li>
+                <li>
+                    <a href="#"><i class=" fa fa-navicon"></i></a>
+                    <ul>
+                        <li><a href="aboutus.html">about us</a></li>
+                        <li><a href="shoplist.html">shop list</a></li>
+                        <li><a href="shopgrid.html">shop grid</a></li>
+                        <li><a href="productsingle.html">shop detail</a></li>
+                        <li><a href="bloglist.html">blog list</a></li>
+                        <li><a href="bloggrid.html">blog grid</a></li>
+                        <li><a href="blogdetail.html">blog detail</a></li>
+                        <li><a href="404.html">404 error</a></li>
+                        <li><a href="comming-soon.html">comming soon</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--************************************
+            Mobile Menu End
+    *************************************-->
+    <!--************************************
+            Header Start
+    *************************************-->
+    {% block head %}
+        <header id="tg-header" class="tg-header tg-haslayout">
+            {% block sidemenu %}
+            {% endblock %}
+            <div class="container">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                    <div class="row">
+
+                        <div class="tg-topbar tg-haslayout">
+                            <nav id="tg-topaddnav" class="tg-topaddnav">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-addnavigationm-mobile">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+
+                                <div id="tg-addnavigationm-mobile" class="tg-addnavigationm-mobile collapse navbar-collapse">
+                                    {% block aelim %}
+                                    <div class="tg-colhalf pull-right">
+                                        <nav class="tg-addnav">
+                                            <ul>
+
+
+
+                                            </ul>
+                                        </nav>
+
+                                    </div>
+
+                                    <div class="tg-colhalf">
+
+                                        <ul class="tg-socialicons">
+
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                        {% endblock %}
+                        <nav id="tg-nav" class="tg-nav brand-center">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-navigationm-mobile">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <strong class="tg-logo">
+                                    <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+                                </strong>
+                            </div>
+                            <div id="tg-navigation" class="tg-navigation">
+                                <div class="tg-colhalf">
+                                    <ul>
+                                        <li class="active">
+                                            <a href="#">Acceuil</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Equipes</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Joueurs</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tg-colhalf">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Statistiques</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">matchs</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">STORE</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
+    <!--************************************
+            Header End
+    *************************************-->
+    <!--************************************
+            Banner Start
+    *************************************-->
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="images/bg-pattran.png" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>Inscription</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Inscription</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--************************************
+            Banner End
+    *************************************-->
+    <!--************************************
+            Main Start
+    *************************************-->
+    <main id="tg-main" class="tg-main tg-paddingbottom-zero tg-haslayout">
+        <section class="tg-main-section tg-paddingbottom-zero tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+                    <h2>Inscription</h2>
+                </div>
+                <div class="col-sm-11 col-xs-11 pull-right">
+                    <div class="row">
+                        <div class="tg-contactus tg-haslayout">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="tg-contactinfobox">
+                                        <div class="tg-section-heading"><h2>N'hesitez pas a nous faire part de vos questions, suggestions & remarques</h2></div>
+                                        <div class="tg-description">
+                                            <p>Le Jeu Fantasy vous invite à devenir coach d’une équipe de foot virtuelle composée des plus grands joueurs du monde qui sont, eux, bien réels</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div  class="tg-commentform help-form" id="tg-commentform">
+                                        <fieldset>
+                                            {{ form_start(form) }}
+                                            <div class="form-group">
+                                                {{ form_errors(form.nomUser) }}
+                                                {{ form_widget(form.nomUser, { 'attr': {'class': 'form-control','placeholder': 'Entrer Votre Nom'} }) }}
+                                            </div>
+                                            <div class="form-group">
+                                                {{ form_errors(form.email) }}
+                                                {{ form_widget(form.email, { 'attr': {'class': 'form-control','placeholder': 'Entrer Votre Email'} }) }}
+                                            </div>
+                                            <div class="form-group">
+                                                {{ form_errors(form.password) }}
+                                                {{ form_widget(form.password, { 'attr': {'class': 'form-control','placeholder': 'Entrer Votre Mdp'} }) }}
+                                            </div>
+                                            <div class="form-group">
+                                                {{ form_errors(form.confirm_password) }}
+                                                {{ form_widget(form.confirm_password, { 'attr': {'class': 'form-control','placeholder': 'Valider Votre Mdp'} }) }}
+                                            </div>
+                                            <div class="form-group">
+                                                {{ form_widget(form.Ajouter, { 'attr': {'class': 'btn btn-outline-danger'} }) }}
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <!--************************************
+            Main End
+    *************************************-->
+    <!--************************************
+            Footer Start
+    *************************************-->
+    {% block footer %}
+    <footer id="tg-footer" class="tg-footer tg-haslayout">
+        <div class="tg-haslayout tg-footerinfobox">
+            <div class="tg-bgboxone"></div>
+            <div class="tg-bgboxtwo"></div>
+            <div class="tg-footerinfo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="tg-footercol">
+                                <div class="tg-haslayout">
+                                    <strong class="tg-logo">
+                                        <a href="#">
+                                            <img src="{{asset('images/logo.png')}}" alt="image description">
+                                        </a>
+                                    </strong>
+                                </div>
+                                <div class="tg-description">
+                                    <p>Le « Fantasy football » est un jeu qui vous incarne dans le
+                                        rôle d'un « Fantasy Manager », chargé de choisir une équipe de joueurs réels
+                                        qui participent à la League tunisienne et qui marquent des points pour votre
+                                        équipe en fonction de leurs performances réelles dans le match.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="tg-footercol">
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="tg-footercol">
+                                <div class="tg-posttitle">
+                                    <h3>Contact Us</h3>
+                                </div>
+
+                                <ul class="tg-contactinfo">
+                                    <li>
+                                        <i class="fa fa-home"></i>
+                                        <address>37 Salem Hijazi , Boumhel , BenArous</address>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope-o"></i>
+                                        <a>fantasyligue1@gmail.com</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        <span>+215 52 517 913</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tg-footerbar">
+            <div class="container">
+
+                <nav class="tg-footernav">
+
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!--************************************
+            Footer End
+    *************************************-->
+</div>
+{% endblock %}
+<!--************************************
+        Wrapper End
+*************************************-->
+<!--************************************
+        Search Start
+*************************************-->
+<div class="tg-searchbox">
+    <a id="tg-close-search" class="tg-close-search" href="javascript:void(0)"><span class="fa fa-close"></span></a>
+    <div class="tg-searcharea">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <form class="tg-form-search">
+                        <fieldset>
+                            <input type="search" class="form-control" placeholder="keyword">
+                            <i class="icon-icon_search2"></i>
+                        </fieldset>
+                    </form>
+                    <p>Start typing and press Enter to search</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--************************************
+        Search End
+*************************************-->
+<!--************************************
+    LightBoxes Start
+*************************************-->
+
+
+<!--************************************
+    LightBoxes End
+*************************************-->
+<script src="{{ asset ('js/vendor/jquery-library.js') }}"></script>
+<script src="{{ asset('js/vendor/bootstrap.min.js') }}" ></script>
+<script src= "{{ asset('js/customScrollbar.min.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.js') }}"></script>
+<script src="{{ asset('js/isotope.pkgd.js') }}"></script>
+<script src="{{ asset('js/prettyPhoto.js') }}"></script>
+<script src="{{ asset('js/swiper.min.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.js') }}"></script>
+<script src="{{ asset('js/countTo.js') }}"></script>
+<script src="{{ asset('js/appear.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+</body>
+
+</html>

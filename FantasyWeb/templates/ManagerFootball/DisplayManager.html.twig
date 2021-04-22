@@ -9,10 +9,10 @@
                     <!-- Basic table card start -->
                     <div class="card text-center">
                         <div class="card-header">
-                            <h5> <i class="fas fa-futbol" > &nbsp;&nbsp;Liste des Adherents</i></h5>
+                            <h5> <i class="fas fa-futbol" > &nbsp;&nbsp;Liste des Managers</i></h5>
                         </div>
                         <div class="card-body">
-                            <a href="{{ path('Add') }}" ><button type="button" class="btn btn-outline-dark" href="{{ path('Add')}}">Ajouter Adherent</button></a>
+                            <a href="{{ path('Add3') }}" ><button type="button" class="btn btn-outline-dark" href="{{ path('Add3')}}">Ajouter Manager Football</button></a>
                         </div>
 
                     </div>
@@ -23,7 +23,7 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <img src="{{asset('images/user.png')}}" alt="image desctription" height="100px" width="90px">
+                                        <img src="{{asset('images/user1.png')}}" alt="image desctription" height="100px" width="90px">
                                         &nbsp;&nbsp;
                                         <div class="d-inline-block">
 
@@ -34,8 +34,8 @@
 
                                         </div>
                                         <div class="pull-right">
-                                            <a href="{{ path('d',{'idUser':e.getIdUser()}) }}"> <i class="fa fa-trash fa-lg" style="color:#e02335" ></i></a> &nbsp;&nbsp;
-                                            <a href="{{ path('update1',{'idUser':e.getIdUser()}) }}"> <i class="fas fa-edit fa-lg" ></i></a>
+                                            <a href="{{ path('delete',{'idUser':e.getIdUser()}) }}"> <i class="fa fa-trash fa-lg" style="color:#e02335" ></i></a> &nbsp;&nbsp;
+                                            <a href="{{ path('update',{'idUser':e.getIdUser()}) }}"> <i class="fas fa-edit fa-lg" ></i></a>
                                         </div>
 
                                     </div>

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modification du  {{ u.getNomUser() }} {{ u.getpassword() }}{% endblock %}
+
+{% block body %}
+                <div class="container">
+                <div class="tg-section-name">
+                {% for u in user %}
+                    <h2>Modification du  {{ u.getNomUser() }} {{ u.getpassword() }}</h2>
+                    {{ form(form) }}
+                </div>
+                    </div>
+                {% endfor %}
+
+{% endblock %}
