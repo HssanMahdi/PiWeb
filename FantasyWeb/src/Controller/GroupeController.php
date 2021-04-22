@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Groupe;
+use App\Entity\User;
 use App\Form\GroupeType;
 use App\Repository\GroupeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,11 +29,13 @@ class GroupeController extends AbstractController
      * @Route ("/DisplayGroupes", name="DisplayGroupes")
      */
     public function DisplayOwned()
-    {   $idu=1;
+    {
+        $idu=1;
         $repo=$this->getDoctrine()->getRepository(Groupe::class);
         $groupe=$repo->findBy([
             "owner"=>$idu
         ]);
+
         return $this->render('groupe/DisplayGroupes.html.twig',
               ['groupe'=>$groupe]);
     }
@@ -63,7 +66,7 @@ class GroupeController extends AbstractController
      * @return Response
      * @Route ("/UpdateGroupe/{id}", name="UpdateGroupe")
      */
-    public function UpdateJoueur(GroupeRepository $repo,$id,Request $request)
+    public function UpdateGroupe(GroupeRepository $repo,$id,Request $request)
     {
         $groupe=$repo->find($id);
         $form=$this->createForm(GroupeType::class,$groupe);
@@ -100,4 +103,15 @@ class GroupeController extends AbstractController
 //        return $this->render('groupe/index.html.twig',
 //            ['groupe'=>$groupe]);
 //    }
+    /**
+     * @Route("/DisplayGroupeFormanager", name="DisplayGroupeFormanager")
+     */
+    public function DisplayGroupeFormanager(GroupeRepository $repo): Response
+    {
+        $groupe=$repo->findAll();
+        return $this->render('groupe/DisplayGroupeFormanager.html.twig', [
+            'groupe' =>$groupe ,
+        ]);
+    }
+
 }
