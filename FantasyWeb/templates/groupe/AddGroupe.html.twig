@@ -37,9 +37,15 @@
                         <h6 style="color: firebrick">Nom équipe</h6>
                         <div class="form-group">
                         {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+<<<<<<< HEAD
                         {{ form_widget(form.nomGroupe, { 'attr': {'class': 'single-input','placeholder': ' Nom Groupe'} }) }}
                             <h5 style="color:red">{{ form_errors(form.nomGroupe) }}</h5>
                         {{ form_widget(form.Valider, { 'attr': {'class': 'tg-btn'} }) }}
+=======
+                        {{ form_errors(form.nomGroupe) }}
+                        {{ form_widget(form.nomGroupe, { 'attr': {'class': 'single-input','placeholder': ' Nom Groupe'} }) }}
+                        {{ form_widget(form.Submit, { 'attr': {'class': 'tg-btn'} }) }}
+>>>>>>> 314456c9ae30d649ea08369810c62c367fa56d06
                         {{ form_end(form) }}
                         </div>
                     </div>

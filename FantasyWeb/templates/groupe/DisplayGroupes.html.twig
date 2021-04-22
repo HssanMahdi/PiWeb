@@ -27,11 +27,15 @@
                     <div class="tg-section-name">
                         <h2>Liste DES GRoupes</h2>
                     </div>
+<<<<<<< HEAD
                     <a class="tg-btn pull-right" href="{{ path('AddGroupe') }}">Crée un groupe</a>
+=======
+>>>>>>> 314456c9ae30d649ea08369810c62c367fa56d06
                     <div class="col-sm-11 col-xs-11 pull-right">
                         <div class="row">
                             <div class="tg-tickets">
                                 {% for g in groupe %}
+<<<<<<< HEAD
                                     <div class="tg-ticket">
                                         <time class="tg-matchdate" datetime="2016-05-03"><span>Owned</span></time>
                                         <div class="tg-matchdetail">
@@ -46,6 +50,21 @@
                                             <a class="tg-btn" href="{{ path('DisplayMembers',{'id':g.idGroupe}) }}">Membres</a>
                                         </div>
                                     </div>
+=======
+                                <div class="tg-ticket">
+                                    <time class="tg-matchdate" datetime="2016-05-03"><span>Owned</span></time>
+                                    <div class="tg-matchdetail">
+                                        <span class="tg-theme-tag"></span>
+                                        <h4>Nom de groupe :</h4>
+                                        <h4>{{g.nomGroupe}}</h4>
+                                    </div>
+                                    <div class="tg-btnsbox">
+                                        <a class="tg-btn" href="{{ path('UpdateGroupe',{'id':g.idGroupe}) }}">Modifier</a>
+                                        <a class="tg-btn" href="{{ path('DeleteGroupe',{'id':g.idGroupe}) }}">Effacer</a>
+                                        <a class="tg-btn" href="{{ path('DisplayMembers',{'id':g.idGroupe}) }}">Membres</a>
+                                    </div>
+                                </div>
+>>>>>>> 314456c9ae30d649ea08369810c62c367fa56d06
                                 {% endfor %}
                             </div>
                         </div>

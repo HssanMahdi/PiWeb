@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Groupe
  *
- * @ORM\Table(name="groupe")
- * @ORM\Entity(repositoryClass="App\Repository\GroupeRepository")
+ * @ORM\Table(name="groupe", indexes={@ORM\Index(name="FK_id_user", columns={"owner"})})
+ * @ORM\Entity
  */
 class Groupe
 {
@@ -23,10 +24,10 @@ class Groupe
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Champs Vide")
      * @ORM\Column(name="nom_groupe", type="text", length=65535, nullable=false)
      */
-    private $nomGroupe;
+    private $nomGroupe="";
 
     /**
      * @var int
@@ -34,6 +35,8 @@ class Groupe
      * @ORM\Column(name="owner", type="integer", nullable=false)
      */
     private $owner;
+
+
 
     /**
      * @return int
@@ -52,9 +55,9 @@ class Groupe
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNomGroupe(): string
+    public function getNomGroupe(): ? string
     {
         return $this->nomGroupe;
     }
@@ -62,10 +65,12 @@ class Groupe
     /**
      * @param string $nomGroupe
      */
-    public function setNomGroupe(string $nomGroupe): void
+    public function setNomGroupe(?string $nomGroupe): void
     {
         $this->nomGroupe = $nomGroupe;
     }
+
+
 
     /**
      * @return int
