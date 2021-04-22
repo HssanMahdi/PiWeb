@@ -47,4 +47,15 @@ class LeavegroupeRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findUser($value1,$value2): ?Leavegroupe
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.idGroupe = :val1 AND f.idUser = :val2')
+            ->setParameter('val1', $value1)
+            ->setParameter('val2', $value2)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
 }

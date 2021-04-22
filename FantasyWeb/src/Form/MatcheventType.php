@@ -6,6 +6,7 @@ use App\Entity\Equipe;
 use App\Entity\Matchevent;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -35,6 +36,10 @@ class MatcheventType extends AbstractType
                 }
 
             ])
+            ->add('datematch', DateType::class,[
+                'input' => 'string',
+                'input_format' => 'Y-m-d',
+                ])
             ->add('Ajouter', SubmitType::class);
         ;
     }

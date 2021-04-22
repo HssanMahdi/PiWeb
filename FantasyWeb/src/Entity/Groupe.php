@@ -24,24 +24,28 @@ class Groupe
 
     /**
      * @var string
-     * @Assert\NotBlank(message= "Champs Vide")
+     * @Assert\NotBlank(message= "Le champ doit être remplit")
      * @ORM\Column(name="nom_groupe", type="text", length=65535, nullable=false)
      */
     private $nomGroupe="";
 
     /**
      * @var int
-     *
      * @ORM\Column(name="owner", type="integer", nullable=false)
      */
     private $owner;
 
 
+//    /**
+//     * @ORM\ManyToOne (targetEntity=User::class , inversedBy="$ownedGroupe")
+//     * @ORM\JoinColumn(name="owner", referencedColumnName="idUser")
+//     */
+//    private $user;
 
     /**
      * @return int
      */
-    public function getIdGroupe(): int
+    public function getIdGroupe(): ?int
     {
         return $this->idGroupe;
     }
@@ -86,6 +90,18 @@ class Groupe
     public function setOwner(int $owner): void
     {
         $this->owner = $owner;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
 

@@ -47,4 +47,22 @@ class GroupeuserRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function deleteUserdeGroupe($idu,$idg)
+    {
+
+        $query = $this->getEntityManager()
+            ->createQuery("DELETE FROM App:Groupeuser c WHERE c.idUser ='$idu' AND c.idGroupe ='$idg'");
+        $query->execute();
+    }
+    public function findUser($value1,$value2): ?Groupeuser
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.idGroupe = :val1 AND f.idUser = :val2')
+            ->setParameter('val1', $value1)
+            ->setParameter('val2', $value2)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
 }

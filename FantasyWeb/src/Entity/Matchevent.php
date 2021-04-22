@@ -24,7 +24,7 @@ class Matchevent
 
     /**
      * @var string
-     * @Assert\NotBlank(message= "Champs non valide")
+     * @Assert\NotBlank(message= "Il faut choisir un titre")
      * @ORM\Column(name="titre", type="text", length=65535, nullable=false)
      */
     private $titre;
@@ -50,18 +50,53 @@ class Matchevent
      */
     private $idEquipeb;
 
+    private $imageA;
+    private $imageB;
+
+    /**
+     * @return string
+     */
+    public function getImageA()
+    {
+        return $this->imageA;
+    }
+
+    /**
+     * @param string $imageA
+     */
+    public function setImageA($imageA): void
+    {
+        $this->imageA = $imageA;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageB()
+    {
+        return $this->imageB;
+    }
+
+    /**
+     * @param string $imageB
+     */
+    public function setImageB($imageB): void
+    {
+        $this->imageB = $imageB;
+    }
+
     /**
      * @return int
      */
-    public function getIdmatch(): int
+    public function getIdmatch(): ?int
     {
         return $this->idmatch;
     }
 
     /**
-     * @param int $idmatch
+     * @param int|null $idmatch
      */
-    public function setIdmatch(int $idmatch): void
+    public function setIdmatch(?int $idmatch): void
     {
         $this->idmatch = $idmatch;
     }
@@ -85,7 +120,7 @@ class Matchevent
     /**
      * @return string
      */
-    public function getDatematch(): string
+    public function getDatematch(): ?string
     {
         return $this->datematch;
     }
@@ -93,7 +128,7 @@ class Matchevent
     /**
      * @param string $datematch
      */
-    public function setDatematch(string $datematch): void
+    public function setDatematch(?string $datematch): void
     {
         $this->datematch = $datematch;
     }
