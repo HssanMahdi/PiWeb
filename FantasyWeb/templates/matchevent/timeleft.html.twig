@@ -1,0 +1,92 @@
+{% extends 'User/User.html.twig' %}
+
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>Temps restant pour le match</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">Temps restant pour le match</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+
+                </div>
+                <div class="tg-bgpattrant">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="tg-upcomingmatch-counter">
+                                <div class="col-md-4 col-sm-4 col-xs-12 hidden-xs">
+                                    <figure>
+                                        <img src="{{asset('images/img-02.png')}}" alt="image description">
+                                    </figure>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class="tg-contentbox">
+                                        <div class="tg-section-heading"><h2 style="color: grey">{{ m.idEquipea }} <span>VS</span> {{ m.idEquipeb }}</h2></div>
+                                        <div id="tg-comming-sooncounter" class="tg-comming-sooncounter">
+                                            <div id="days" class="timer_box"><p>Days</p><h1 id="d"></h1></div>
+                                            <div id="hours" class="timer_box"><p>Hrs</p><h1 id="h"></h1></div>
+                                            <div id="minutes" class="timer_box"><p>Min</p><h1 id="m"></h1></div>
+                                            <div id="seconds" class="timer_box"><p>Secs</p><h1 id="s"></h1></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date({{ y }}, {{ mm }}, {{ d}}).getTime();
+        {#var countDownDate={{ m. }};#}
+        {#alert(new Date({{ y }}, {{ mm }}, {{ d}}));#}
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+            // alert( new Date());
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24))-365;
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("d").innerHTML =days;
+            document.getElementById("h").innerHTML =hours;
+            document.getElementById("m").innerHTML =minutes;
+            document.getElementById("s").innerHTML =seconds;
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <script src="https://rhashemian.github.io/js/countdown.js"></script>
+{% endblock %}

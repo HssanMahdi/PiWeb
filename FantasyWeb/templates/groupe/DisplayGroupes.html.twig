@@ -1,0 +1,56 @@
+{% extends 'User/User.html.twig' %}
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>La liste des GROUPES</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">La liste des GROUPES</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    {% block body %}
+
+        <main id="tg-main" class="tg-main tg-haslayout">
+            <section class="tg-main-section tg-haslayout">
+                <div class="container">
+                    <div class="tg-section-name">
+                        <h2>Liste DES GRoupes</h2>
+                    </div>
+                    <a class="tg-btn pull-right" href="{{ path('AddGroupe') }}">Crée un groupe</a>
+                    <div class="col-sm-11 col-xs-11 pull-right">
+                        <div class="row">
+                            <div class="tg-tickets">
+                                {% for g in groupe %}
+                                    <div class="tg-ticket">
+                                        <time class="tg-matchdate" datetime="2016-05-03"><span>Owned</span></time>
+                                        <div class="tg-matchdetail">
+                                            <span class="tg-theme-tag"></span>
+                                            <h4>Nom de groupe :</h4>
+                                            <h4>{{g.nomGroupe}}</h4>
+                                        </div>
+                                        <div class="tg-btnsbox">
+                                            <a class="tg-btn" href="{{ path('AddMember',{'id':g.idGroupe}) }}">Ajouter</a>
+                                            <a class="tg-btn" href="{{ path('UpdateGroupe',{'id':g.idGroupe}) }}">Modifier</a>
+                                            <a class="tg-btn" href="{{ path('DeleteGroupe',{'id':g.idGroupe}) }}">Effacer</a>
+                                            <a class="tg-btn" href="{{ path('DisplayMembers',{'id':g.idGroupe}) }}">Membres</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    {% endblock %}

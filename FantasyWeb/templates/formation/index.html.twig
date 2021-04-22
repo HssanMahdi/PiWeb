@@ -1,0 +1,66 @@
+{% extends 'User/User.html.twig' %}
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>Votre Formation :</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">Votre Formation :</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+                    <h2>Votre formation</h2>
+                </div>
+                <div class="col-sm-11 col-xs-11 pull-right">
+                    <div class="row">
+                        <div id="tg-comments" class="tg-comments">
+                            <div class="tg-section-heading">
+                                <h2>Votre Formation</h2>
+                            </div>
+                        {% for j in ar %}
+
+                            <ul>
+                                <li>
+                                    <div class="tg-comment">
+                                        <figure>
+                                                <img style="width:200px;height:180px" src="{{asset('uploads/'~j.logoJoueur)}}" alt="image description">
+                                        </figure>
+                                        <div class="tg-commentdata">
+                                            <span class="tg-theme-tag"><time datetime="2016-05-03">{{ j.position }}</time></span>
+                                            <a class="tg-btnreply" href="{{ path('DeleteFormjoueur',{'id':j.idJoueur}) }}">Vendre</a>
+                                            <div class="tg-section-heading">
+                                                <h3>{{ j.nomJoueur }} {{ j.prenomJoueur }}</h3>
+                                            </div>
+                                            <div class="tg-description">
+                                                <p>Prix :{{ j.prixJoueur }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
