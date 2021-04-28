@@ -6,11 +6,15 @@
         <div class="page-wrapper">
             <!-- Page-body start -->
             <div class="page-body">
+
                 <!-- Basic table card start -->
                 <div class="card">
                     <div class="card-header">
                         <h5> <i class="fas fa-futbol" > &nbsp;&nbsp;Liste des Joueurs</i></h5>
-                        <div class="pull-right"><a href="{{ path('AddPlayer') }}"><button  class="btn btn-outline-danger"><i class="fa fa-check-square-o fa-lg" ></i>Ajouter</button></a></div>
+                        <div class="pull-right"><a href="{{ path('AddPlayer') }}"><button  class="btn btn-outline-dark"><i class="fa fa-check-square-o fa-lg" ></i>Ajouter</button></a>
+                            <a href="{{ path('DisplayListe') }}"><button  class="btn btn-outline-danger"><i class="fa fa-check-square-o fa-lg" ></i>PDF</button></a>
+                        <a href="{{ path('testexcel') }}"><button  class="btn btn-outline-success"><i class="fa fa-check-square-o fa-lg" ></i>Excel</button></a>
+                            <a href="{{ path('testWord') }}"><button  class="btn btn-outline-primary"><i class="fa fa-check-square-o fa-lg" ></i>Word</button></a></div>
 
 {#                        <div class="card-header-right">#}
 {#                            <ul class="list-unstyled card-option">#}
@@ -25,6 +29,7 @@
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
                             <table class="table">
+
                                 <thead class="table-light">
                                 <tr>
                                     <th style="color: #e02335;" ><h6>Logo</h6></th>
@@ -75,4 +80,5 @@
 
     </div>
 </div>
+
 {% endblock %}
