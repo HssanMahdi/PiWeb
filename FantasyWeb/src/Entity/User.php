@@ -3,14 +3,18 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\UserPassword;
+
 
 /**
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -18,127 +22,200 @@ class User
      * @ORM\Column(name="id_user", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+
      */
     private $idUser;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Champ non valide")
      * @ORM\Column(name="nom_user", type="text", length=65535, nullable=false)
+
      */
     private $nomUser;
 
     /**
      * @var string
-     *
+     *@Assert\NotBlank (message= "Veuillez saisir une valeur")
+     *@Assert\Email(message= "Email non valide")
      * @ORM\Column(name="email", type="text", length=65535, nullable=false)
      */
     private $email;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="password", type="text", length=65535, nullable=true)
+     * @var string
+     *@Assert\Length (min="8", minMessage= "Votre mdp doit faire minimum 8 caractères")
+     * @ORM\Column(name="password", type="text", length=65535, nullable=false)
      */
     private $password;
 
     /**
+     * @Assert\EqualTo(propertyPath="password",message="Vous n'avez pas tapé le méme Mdp")
+     */
+    public $confirm_password;
+
+    /**
      * @var string
-     *
      * @ORM\Column(name="type_user", type="text", length=65535, nullable=false)
      */
-    private $typeUser;
+    private string $typeUser;
 
     /**
      * @var int|null
-     *
      * @ORM\Column(name="score_user", type="integer", nullable=true)
      */
     private $scoreUser;
 
     /**
      * @var int|null
-     *
      * @ORM\Column(name="solde", type="integer", nullable=true)
      */
     private $solde;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $activation_token;
+
+    /**
+     * @return int
+     */
     public function getIdUser(): ?int
     {
         return $this->idUser;
     }
 
-    public function getNomUser(): ?string
+    /**
+     * @param int $idUser
+     */
+    public function setIdUser(int $idUser): void
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNomUser()
     {
         return $this->nomUser;
     }
 
-    public function setNomUser(string $nomUser): self
+    /**
+     * @param mixed $nomUser
+     */
+    public function setNomUser(string $nomUser)
     {
         $this->nomUser = $nomUser;
-
-        return $this;
     }
 
-    public function getEmail(): ?string
+    /**
+     * @return mixed
+     */
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    /**
+     * @param mixed $email
+     */
+    public function setEmail(string $email): void
     {
         $this->email = $email;
-
-        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(?string $password): self
+    /**
+     * @param string|null $password
+     */
+    public function setPassword(?string $password): void
     {
         $this->password = $password;
-
-        return $this;
     }
 
-    public function getTypeUser(): ?string
+    /**
+     * @return mixed
+     */
+    public function getTypeUser()
     {
         return $this->typeUser;
     }
 
-    public function setTypeUser(string $typeUser): self
+    /**
+     * @param mixed $typeUser
+     */
+    public function setTypeUser(string $typeUser): void
     {
         $this->typeUser = $typeUser;
-
-        return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getScoreUser(): ?int
     {
         return $this->scoreUser;
     }
 
-    public function setScoreUser(?int $scoreUser): self
+    /**
+     * @param int|null $scoreUser
+     */
+    public function setScoreUser(?int $scoreUser): void
     {
         $this->scoreUser = $scoreUser;
-
-        return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getSolde(): ?int
     {
         return $this->solde;
     }
 
-    public function setSolde(?int $solde): self
+    /**
+     * @param int|null $solde
+     */
+    public function setSolde(?int $solde): void
     {
         $this->solde = $solde;
+    }
+
+    public function getRoles()
+    {
+       return ['ROLE_USER'];
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function getUsername()
+    {
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activation_token;
+    }
+
+    public function setActivationToken(?string $activation_token): self
+    {
+        $this->activation_token = $activation_token;
 
         return $this;
     }
-
-
 }

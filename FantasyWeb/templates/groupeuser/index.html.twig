@@ -1,0 +1,52 @@
+{% extends 'User/User.html.twig' %}
+
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>la Liste DES Membres</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">la Liste DES Membres</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+                    <h2>la Liste DES Membres</h2>
+                </div>
+                <div class="col-sm-11 col-xs-11 pull-right">
+                    <div class="row">
+                        <div class="tg-tickets">
+                            {% for u in ar %}
+                                <div class="tg-ticket">
+                                    <time class="tg-matchdate" ><span>Score : {{ u.scoreUser }}</span></time>
+                                    <div class="tg-matchdetail">
+                                        <span class="tg-theme-tag"></span>
+                                        <h4>Nom de User :</h4>
+                                        <h4>{{ u.nomUser }}</h4>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
+
+

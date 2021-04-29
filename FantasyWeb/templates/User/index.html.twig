@@ -1,0 +1,427 @@
+<!doctype html>
+{% block css %}
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zxx"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang="zxx"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang="zxx"> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang="zxx"> <!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fantasy Ligue 1</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="{{asset('apple-touch-icon.png')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/transitions.css')}}">
+    <link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
+    <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('css/customScrollbar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('css/color.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet'>
+
+
+</head>
+{% endblock %}
+<body>
+
+<!--************************************
+        Wrapper Start
+*************************************-->
+
+
+
+
+
+<!--************************************
+        Header 7atta 7ad
+*************************************-->
+
+{% block head %}
+    <header id="tg-header" class="tg-header tg-haslayout">
+        {% block sidemenunav %}
+        <!--************************************
+                SideBar Navigation Start
+        *************************************-->
+        <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+            <div id="tg-sidenav" class="tg-sidenav">
+                <div id="tg-navscrollbar" class="tg-navscrollbar">
+                    <strong class="tg-logo">
+                        <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+                    </strong>
+                    <nav id="tg-nav" class="tg-nav">
+                        <div id="tg-navigation" class="tg-navigation">
+                            <ul>
+                                <li class="tg-hasdropdown">
+                                    <a href="{{ path('DisplayGroupes') }}">Groupes</a>
+                                    <ul>
+                                        <li><a href="{{ path('DisplayGroupes') }}">propriétaire</a></li>
+                                        <li><a href="{{ path('DisplayGroupesMem') }}">Membre</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ path('formation') }}">Formation</a></li>
+                                <li >
+                                    <a href="{{ path('DisplayPubUser') }}">highlights</a>
+                                </li>
+                                <li><a href="{{ path('user') }}">Déconnexion</a></li>
+
+
+
+                            </ul>
+
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+            {% endblock %}
+            {% block sidemenu %}
+
+                <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+            {% endblock %}
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                <div class="row">
+
+                    <div class="tg-topbar tg-haslayout">
+                        <nav id="tg-topaddnav" class="tg-topaddnav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-addnavigationm-mobile">
+                                    <i class="fa fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <div id="tg-addnavigationm-mobile" class="tg-addnavigationm-mobile collapse navbar-collapse">
+                                {% block aelim %}
+                                <div class="tg-colhalf pull-right">
+                                    <nav class="tg-addnav">
+                                        <ul>
+
+
+                                        </ul>
+                                    </nav>
+
+                                </div>
+
+                                <div class="tg-colhalf">
+                                    <ul class="tg-socialicons">
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    {% endblock %}
+                    <nav id="tg-nav" class="tg-nav brand-center">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-navigationm-mobile">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <strong class="tg-logo">
+                                <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+                            </strong>
+                        </div>
+                        <div id="tg-navigation" class="tg-navigation">
+                            <div class="tg-colhalf">
+                                <ul>
+                                    <li class="active">
+                                        <a href="#">Acceuil</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('DisplayEquipe') }}">Equipes</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('DisplayPlayers') }}">Joueurs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tg-colhalf">
+                                <ul>
+                                    <li>
+                                        <a href="#">Statistiques</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('DisplayMatch') }}">matchs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">STORE</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+<!--************************************
+        Header End
+*************************************-->
+
+<!--************************************
+        Home Slider Start
+*************************************-->
+    <div class="tg-sliderbox">
+        <div class="tg-imglayer">
+            <img src="images/bg-pattran.png" alt="image desctription">
+        </div>
+        <div id="tg-home-slider" class="tg-home-slider tg-haslayout">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="container">
+                        <figure class="floating">
+                            <img src="images/slider/img-01.png" alt="image description">
+                        </figure>
+                        <div class="tg-slider-content">
+                            <h1>Fantasy <span>ligue 1</span></h1>
+                            <div class="tg-btnbox">
+                                <h2>By alpha team</h2>
+                                <a class="tg-btn" href="{{ path('DisplayMatch') }}"><span>Matchs</span></a>
+                                <a class="tg-btn" href="{{ path('DisplayPlayers') }}"><span>joueurs</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tg-btn-next">
+                <span>next</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <div class="tg-btn-prev">
+                <span>prev</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+        </div>
+    </div>
+    <!--************************************
+            Home Slider End
+    *************************************-->
+{% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+<!--************************************
+        Footer Start
+*************************************-->
+{% block footer %}
+    <footer id="tg-footer" class="tg-footer tg-haslayout">
+        <div class="tg-haslayout tg-footerinfobox">
+            <div class="tg-bgboxone"></div>
+            <div class="tg-bgboxtwo"></div>
+            <div class="tg-footerinfo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="tg-footercol">
+                                <div class="tg-haslayout">
+                                    <strong class="tg-logo">
+                                        <a href="#">
+                                            <img src="{{asset('images/logo.png')}}" alt="image description">
+                                        </a>
+                                    </strong>
+                                </div>
+                                <div class="tg-description">
+                                    <p>Le « Fantasy football » est un jeu qui vous incarne dans le
+                                        rôle d'un « Fantasy Manager », chargé de choisir une équipe de joueurs réels
+                                        qui participent à la League tunisienne et qui marquent des points pour votre
+                                        équipe en fonction de leurs performances réelles dans le match.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="tg-footercol">
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="tg-footercol">
+                                <div class="tg-posttitle">
+                                    <h3>Contact Us</h3>
+                                </div>
+
+                                <ul class="tg-contactinfo">
+                                    <li>
+                                        <i class="fa fa-home"></i>
+                                        <address>37 Salem Hijazi , Boumhel , BenArous</address>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope-o"></i>
+                                        <a>fantasyligue1@gmail.com</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        <span>+215 52 517 913</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tg-footerbar">
+            <div class="container">
+
+                <nav class="tg-footernav">
+
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!--************************************
+            Footer End
+    *************************************-->
+    </div>
+{% endblock %}
+
+<!--************************************
+        Wrapper End
+*************************************-->
+
+<!--************************************
+    LightBoxes Start
+*************************************-->
+{% block loginreg %}
+    <div class="tg-modalbox modal fade" id="tg-login" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="tg-modal-content">
+                <div class="tg-formarea">
+                    <div class="tg-border-heading">
+                        <h3>Login</h3>
+                    </div>
+                    <form class="tg-loginform" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="text" name="userName/email" class="form-control" placeholder="username/email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="password">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" value="rememberme" class="checkbox">
+                                    <em>Remember Me</em>
+                                </label>
+                                <a href="#">
+                                    <em>Forgot Password</em>
+                                    <i class="fa fa-question-circle"></i>
+                                </a>
+                            </div>
+                            <div class="form-group">
+                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
+                            </div>
+                            <div class="tg-description">
+                                <p>Don't have an account? <a href="#">Signup</a></p>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="tg-logintype">
+                    <div class="tg-border-heading">
+                        <h3>Login with</h3>
+                    </div>
+                    <ul>
+                        <li class="tg-facebook"><a href="#">facebook</a></li>
+                        <li class="tg-twitter"><a href="#">twitter</a></li>
+                        <li class="tg-googleplus"><a href="#">google+</a></li>
+                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="tg-modal-content">
+                <div class="tg-formarea">
+                    <div class="tg-border-heading">
+                        <h3>Signup</h3>
+                    </div>
+                    <form class="tg-loginform" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="text" name="userName" class="form-control" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="email">
+                            </div>
+                            <div class="form-group">
+                                <div class="tg-note">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <span>We will email you your password.</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
+                            </div>
+                            <div class="tg-description">
+                                <p>Already have an account? <a href="#">Login</a></p>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="tg-logintype">
+                    <div class="tg-border-heading">
+                        <h3>Signup with</h3>
+                    </div>
+                    <ul>
+                        <li class="tg-facebook"><a href="#">facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!--************************************
+    LightBoxes End
+*************************************-->
+{% block js %}
+<script src="{{asset('js/vendor/jquery-library.js')}}"></script>
+<script src="{{asset('js/vendor/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/customScrollbar.min.js')}}"></script>
+<script src="{{asset('js/owl.carousel.js')}}"></script>
+<script src="{{asset('js/isotope.pkgd.js')}}"></script>
+<script src="{{asset('js/prettyPhoto.js')}}"></script>
+<script src="{{asset('js/swiper.min.js')}}"></script>
+<script src="{{asset('js/jquery-ui.js')}}"></script>
+<script src="{{asset('js/countTo.js')}}"></script>
+<script src="{{asset('js/appear.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/javaScript.js')}}"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js')}}"></script>
+<script src="{{ asset('code.jquery.com/jquery.js') }}"></script>
+<!-- Load Flashy default JavaScript -->
+<script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+<div style="z-index: 10">
+    {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+</div>
+</body>
+
+{% endblock %}
+</html>

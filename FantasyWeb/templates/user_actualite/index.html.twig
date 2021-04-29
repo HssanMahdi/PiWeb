@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+
+
+
+
+{% block sidemenunav %}
+    <!--************************************
+            SideBar Navigation Start
+    *************************************-->
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+    <div id="tg-sidenav" class="tg-sidenav">
+        <div id="tg-navscrollbar" class="tg-navscrollbar">
+            <strong class="tg-logo">
+                <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+            </strong>
+            <nav id="tg-nav" class="tg-nav">
+                <div id="tg-navigation" class="tg-navigation">
+                    <ul>
+                        <li >
+                            <a href="#">Groupes</a>
+                        </li>
+                         <li >
+                            <a href="#">actualites</a>
+                        </li>
+                         <li><a href="#">Formation</a></li>
+                        <li >
+                            <a href="#">Mon profile</a>
+                        </li>
+                        <li><a href="#">Déconnexion</a></li>
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+{% endblock %}
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+{% endblock %}
+
+
+
+    {% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <!--************************************
+                Top Rated Player Start
+        *************************************-->
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+
+                <div class="col-sm-11 col-xs-11 pull-right">
+                    <div class="row">
+                        <div class="tg-player-grid2 tg-haslayout">
+
+                                <div class="swiper-wrapper">
+                                    {% for actualite in actualites%}
+
+
+                                           <div class="card col-md-4" style="width: 30rem">
+                                           <p class="date" >ecrit le {{ actualite.date ? actualite.date|date('d-m-Y') : '' }}</p>
+                                           <img class="card-img-top" src="{{ vich_uploader_asset(actualite, 'imageFile') }}" style="width: 100%; height: auto" >
+                                       <div class="card-body">
+                                       <h5 class="card-title">{{ actualite.titre }}</h5>
+                                       <a herf="{{ path('show_actualite',{'id':actualite.idActualites}) }}" class="btn btn-primary ">en savoir plus </a>
+                                       <a href="{{ path('actualites_like',{'id':actualite.idActualites}) }}" class="btn btn-link js-like"><i class="fas fa-thumbs-up"></i>
+
+                                          <span class="js-likes">{{ actualite.likes|length }}</span>
+
+                                           <span class="js-label">j'aime</span></a>
+
+                                       </div>
+                                             </div>
+
+
+
+
+                                    {% endfor %}
+                                </div>
+
+
+                                <div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
+                                <div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+    </main>
+{% endblock %}
+{% block js %}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    function  onClickBtnLike(event){
+        event.preventDefault();
+        const url = this.href;
+        const spanCount=this.querySelector('span.js-like');
+
+        axios.get(url).then(function (response){
+            console.log(response);
+
+        })
+    }
+
+      document.querySelectorAll('a.js-like').forEach(function(link) {
+        link.addEventListener('click',onClickBtnLike);
+      })
+
+        </script>
+{% endblock %}
+

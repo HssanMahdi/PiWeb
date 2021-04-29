@@ -1,0 +1,78 @@
+{% extends 'User/User.html.twig' %}
+
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>Liste des matches</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">Liste des matches</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+
+    <main id="tg-main" class="tg-main tg-haslayout">
+			<section class="tg-main-section tg-haslayout">
+				<div class="container">
+					<div class="tg-section-name">
+						<h2>Liste des matches</h2>
+					</div>
+					<div style="text-align: center;"><H2 style="color:red">{{ j }}</H2></div>
+					<a class="tg-btn pull-right" href="{{ path('Displayfav') }}">Favoris</a>
+					<div class="col-sm-11 col-xs-11 pull-right">
+						<div class="row">
+						{% for m in matchevent %}
+							<div class="tab-content tg-tabscontent">
+								<div role="tabpanel" class="tab-pane fade in active" id="one">
+									<div class="tg-matchresult">
+									<hr>
+										<div class="tg-box">
+											<a class="tg-btn" href="{{ path('favmatch',{'id':m.idmatch}) }}">ajouter aux Favoris</a>
+											<div class="tg-score">
+											<a href="{{ path('timeleft',{'id':m.idmatch}) }}"><h3>{{ m.titre }}</h3>
+											<h6 style="color:whitesmoke">&nbsp; &nbsp; {{ m.datematch }}</h6></a>
+											</div>
+
+											<div class="tg-teamscore">
+												<strong class="tg-team-logo">
+													<img src="{{ asset('uploads/'~m.imageA )}}" height="220" width="150" alt="image description">
+												</strong>
+												<div class="tg-team-nameplusstatus">
+													<h4 style="color:whitesmoke">{{ m.idEquipea }}</h4>
+												</div>
+
+											</div>
+											<div class="tg-teamscore">
+												<strong class="tg-team-logo">
+														<img src="{{ asset('uploads/'~m.imageB )}}" height="220" width="150" alt="image description">
+												</strong>
+												<div class="tg-team-nameplusstatus">
+													<h4 style="color:whitesmoke">{{ m.idEquipeb }}</h4>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<br><br>
+							</div>
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+{% endblock %}

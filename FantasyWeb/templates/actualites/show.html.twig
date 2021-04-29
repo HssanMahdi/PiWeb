@@ -1,0 +1,36 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Actualites{% endblock %}
+
+{% block westpage %}
+    <h1>Actualites</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>image</th>
+            <td><img src="{{ vich_uploader_asset(actualite, 'imageFile') }}" class="card-img-top" style="width: 100%; height: auto"></td>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <td>{{ actualite.titre }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ actualite.date ? actualite.date|date('Y-m-d') : '' }}</td>
+        </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ actualite.description }}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('actualites_index') }}"class="btn btn-info">retour</a>
+
+
+
+    {{ include('actualites/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+{% endblock %}
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>Inscription</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">home_Inscription</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <!--************************************
+                Top Rated Player Start
+        *************************************-->
+
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+                    <h2>Inscription</h2>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-push-4 col-sm-11  pull-right">
+
+                         {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                         <h6 style="color:#AB0000;">Nom</h6>
+                          <div class="form-group">
+                           {{ form_errors(form.email) }}
+                               {{ form_widget(form.nomUser, { 'attr': {'class': 'form-control','placeholder': 'Entrer Votre Nom'} }) }}
+                           </div>
+                            <h6 style="color:#ab0000;">Email</h6>
+                            <div class="form-group">
+                             {{ form_errors(form.email) }}
+                                {{ form_widget(form.email, { 'attr': {'class': 'form-control','placeholder': 'Entrer Votre Email'} }) }}
+                            </div>
+                            <h6 style="color:#ab0000;">Mot de passe</h6>
+                            <div class="form-group">
+                             {{ form_errors(form.password) }}
+                                {{ form_widget(form.password, { 'attr': {'class': 'form-control','placeholder': 'Entrer Votre Mdp'} }) }}
+                             </div>
+                             <h6 style="color:#ab0000;">Confirmation Mdp</h6>
+                             <div class="form-group">
+                              {{ form_errors(form.confirm_password) }}
+                                 {{ form_widget(form.confirm_password, { 'attr': {'class': 'form-control','placeholder': 'Valider Votre Mdp'} }) }}
+                             </div>
+                             {{ form_widget(form.Valider, { 'attr': {'class': 'tg-btn'} }) }}
+
+                    {{ form_end(form) }}
+                    </div>
+            </div>
+
+        </section>
+    </main>
+
+
+{#{{ form_start(form) }}#}
+{#{{ form_widget(form) }}#}
+{#    <button class="tg-btn" >Ajouter</div>#}
+{#{{ form_end(form) }}#}
+
+
+{% endblock %}

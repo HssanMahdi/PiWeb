@@ -7,7 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Statistique
  *
- * @ORM\Table(name="statistique", indexes={@ORM\Index(name="FK_id_joueur", columns={"id_joueur"}), @ORM\Index(name="FK_id_equipe", columns={"id_equipe"})})
+ * @ORM\Table(name="statistique", indexes={@ORM\Index(name="FK_id_joueur", columns={"id_joueur"})}))
+ *  @ORM\Entity(repositoryClass="App\Repository\StatistiqueRepository")
  * @ORM\Entity
  */
 class Statistique
@@ -15,7 +16,7 @@ class Statistique
     /**
      * @var int
      *
-     * @ORM\Column(name="id_statistique", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -36,9 +37,9 @@ class Statistique
     private $assist;
 
     /**
-     * @var bool
+     * @var int
      *
-     * @ORM\Column(name="clean", type="boolean", nullable=false)
+     * @ORM\Column(name="clean", type="integer", nullable=false)
      */
     private $clean;
 
@@ -57,107 +58,128 @@ class Statistique
     private $numberr;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_equipe", type="integer", nullable=false)
-     */
-    private $idEquipe;
+     * @ORM\ManyToOne(targetEntity=Joueur::class)
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="id_joueur", type="integer", nullable=true)
+     * @ORM\JoinColumn(name="id_joueur", referencedColumnName="id_joueur")
      */
     private $idJoueur;
 
-    public function getIdStatistique(): ?int
+    /**
+     * @return mixed
+     */
+    public function getIdJoueur()
+    {
+        return $this->idJoueur;
+    }
+
+    /**
+     * @param mixed $idJoueur
+
+     */
+    public function setIdJoueur($idJoueur):void
+    {
+        $this->idJoueur = $idJoueur;
+
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getIdStatistique():? int
     {
         return $this->idStatistique;
     }
 
+    /**
+     * @param int $idStatistique
+     */
+    public function setIdStatistique(int $idStatistique): void
+    {
+        $this->idStatistique = $idStatistique;
+    }
+
+    /**
+     * @return int
+     */
     public function getBut(): ?int
     {
         return $this->but;
     }
 
-    public function setBut(int $but): self
+    /**
+     * @param int $but
+     */
+    public function setBut(int $but): void
     {
         $this->but = $but;
-
-        return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getAssist(): ?int
     {
         return $this->assist;
     }
 
-    public function setAssist(int $assist): self
+    /**
+     * @param int $assist
+     */
+    public function setAssist(int $assist): void
     {
         $this->assist = $assist;
-
-        return $this;
     }
 
-    public function getClean(): ?bool
+    /**
+     * @return int
+     */
+    public function getClean(): ?int
     {
         return $this->clean;
     }
 
-    public function setClean(bool $clean): self
+    /**
+     * @param int $clean
+     */
+    public function setClean(int $clean): void
     {
         $this->clean = $clean;
-
-        return $this;
     }
 
-    public function getNumbery(): ?int
+    /**
+     * @return int
+     */
+    public function getNumbery():? int
     {
         return $this->numbery;
     }
 
-    public function setNumbery(int $numbery): self
+    /**
+     * @param int $numbery
+     */
+    public function setNumbery(int $numbery): void
     {
         $this->numbery = $numbery;
-
-        return $this;
     }
 
-    public function getNumberr(): ?int
+    /**
+     * @return int
+     */
+    public function getNumberr():? int
     {
         return $this->numberr;
     }
 
-    public function setNumberr(int $numberr): self
+    /**
+     * @param int $numberr
+     */
+    public function setNumberr(int $numberr): void
     {
         $this->numberr = $numberr;
-
-        return $this;
     }
 
-    public function getIdEquipe(): ?int
-    {
-        return $this->idEquipe;
-    }
 
-    public function setIdEquipe(int $idEquipe): self
-    {
-        $this->idEquipe = $idEquipe;
-
-        return $this;
-    }
-
-    public function getIdJoueur(): ?int
-    {
-        return $this->idJoueur;
-    }
-
-    public function setIdJoueur(?int $idJoueur): self
-    {
-        $this->idJoueur = $idJoueur;
-
-        return $this;
-    }
 
 
 }

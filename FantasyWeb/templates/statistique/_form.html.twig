@@ -1,0 +1,26 @@
+
+<div classe="countainer mt-4">
+
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.idJoueur) }}</div>
+        <div class="col-md-4">{{ form_row(form.but) }}</div>
+        <div class="col-md-4">{{ form_row(form.assist) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.clean) }}</div>
+        <div class="col-md-4">{{ form_row(form.numberr) }}</div>
+        <div class="col-md-4">{{ form_row(form.numbery) }}</div>
+    </div>
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+
+
+</div>
+
+
+
+
+
+

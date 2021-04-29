@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Markers</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style type="text/css">
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        function initMap() {
+            const myLatLng11 = { lat: 36.7477717, lng: 10.27314 };
+            const menzah = { lat: 36.8398428, lng: 10.1851757 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 9,
+                center: myLatLng11,
+            });
+            new google.maps.Marker({
+                position: myLatLng11,
+                map,
+                title: "Stade rades",
+            });
+            new google.maps.Marker({
+                position: menzah,
+                map,
+                title: "Stade menzah",
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="map"></div>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC87sI21tGnCuy_fU0X3_6dPLEershMJbY&callback=initMap&libraries=&v=weekly"
+        async
+></script>
+</body>
+</html>

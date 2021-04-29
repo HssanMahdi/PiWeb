@@ -1,0 +1,35 @@
+{% extends 'baseDashboard.html.twig' %}
+{% block westpage %}
+    <div class="pcoded-inner-content" xmlns="http://www.w3.org/1999/html">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- Page-body start -->
+                <div class="page-body">
+                    <!-- Basic table card start -->
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h3 style="color: #e02335"> <i class="far fa-file-video" > </i>&nbsp;&nbsp;{{publication.videoname}}</h3>
+
+                        </div>
+                        <div class="card-body" style="background-color: black;"><iframe style="border-color: black;" src="{{asset('Uploads/')~publication.url}}" class=liveVideo height="400px" width="600px"
+                                                       allowfullscreen=""></iframe></div>
+
+                    </div>
+
+
+
+                </div>
+                <!-- Page-body end -->
+            </div>
+        </div>
+        <!-- Main-body end -->
+
+        <div id="styleSelector">
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

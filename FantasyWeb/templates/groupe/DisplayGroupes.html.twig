@@ -1,0 +1,56 @@
+{% extends 'User/User.html.twig' %}
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>{% trans %}Liste DES GRoupes{% endtrans %}</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">{% trans %}Liste DES GRoupes{% endtrans %}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    {% block body %}
+
+        <main id="tg-main" class="tg-main tg-haslayout">
+            <section class="tg-main-section tg-haslayout">
+                <div class="container">
+                    <div class="tg-section-name">
+                        <h2>{% trans %}Liste DES GRoupes{% endtrans %}</h2>
+                    </div>
+                    <a class="tg-btn pull-right" href="{{ path('AddGroupe') }}">{% trans %}Crée un groupe{% endtrans %}</a>
+                    <div class="col-sm-11 col-xs-11 pull-right">
+                        <div class="row">
+                            <div class="tg-tickets">
+                                {% for g in groupe %}
+                                    <div class="tg-ticket">
+                                        <time class="tg-matchdate" datetime="2016-05-03"><span>Owned</span></time>
+                                        <div class="tg-matchdetail">
+                                            <span class="tg-theme-tag"></span>
+                                            <h4>{% trans %}Nom de groupe{% endtrans %} :</h4>
+                                            <h4>{{g.nomGroupe}}</h4>
+                                        </div>
+                                        <div class="tg-btnsbox">
+                                            <a class="tg-btn" href="{{ path('AddMember',{'id':g.idGroupe}) }}">{% trans %}Ajouter{% endtrans %}</a>
+                                            <a class="tg-btn" href="{{ path('UpdateGroupe',{'id':g.idGroupe}) }}">{% trans %}Modifier{% endtrans %}</a>
+                                            <a class="tg-btn" href="{{ path('DeleteGroupe',{'id':g.idGroupe}) }}">{% trans %}Effacer{% endtrans %}</a>
+                                            <a class="tg-btn" href="{{ path('DisplayMembers',{'id':g.idGroupe}) }}">{% trans %}Membres{% endtrans %}</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    {% endblock %}

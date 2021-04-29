@@ -1,0 +1,11 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}New Statistique{% endblock %}
+
+{% block westpage %}
+    <h1>Create new Statistique</h1>
+
+    {{ include('statistique/_form.html.twig') }}
+
+    <a href="{{ path('statistique_index') }}"class="btn btn-info">retour</a>
+{% endblock %}

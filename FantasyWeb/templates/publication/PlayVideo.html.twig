@@ -1,0 +1,125 @@
+{% extends 'User/User.html.twig' %}
+
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>Highlights</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">Highlights</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout" style="color: black">
+        <!--************************************
+                Top Rated Player Start
+        *************************************-->
+	{#<section class="tg-videobox tg-haslayout">
+				<figure>
+
+						<iframe width="650  " height="500" src="{{asset('Uploads/')~publication.url}}"
+                                    allowfullscreen="allowfullscreen"></iframe>
+
+				</figure>
+			</section>#}
+
+		<section class=latestvideo>
+        <div class=container>
+            <div class=row><h2 class=heading> <span>{{publication.videoname}}</span></h2>
+                <div class="video-wrap clearfix">
+                    <div class="video-content clearfix"><a class=btn-up style="display: block;"></a>
+                        <ul class="videoLive clearfix" id=videoSlide role=tablist>
+                        {% for e in pub %}
+                            <li><a href="{{ path('PlayVideo',{'id':e.idvideo}) }}" >
+                                <div><span>{{e.getDatePub()}}</span><span>{{e.getVideoname()}}</span>
+                                </div>
+                            </a></li>
+                        {% endfor %}
+                        </ul>
+                        <a class=btn-down style="display: block;"></a></div>
+                    <div class=video-show>
+                        <div class=video-container id=video01 data-current-video=W7qWa52k-nE>
+                            <iframe src="{{asset('Uploads/')~publication.url}}" class=liveVideo height="500px" width="600px"
+                                    allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    </main>
+{% endblock %}
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+
+<script  type="text/javascript">
+$(function() {
+
+     if ($('#videoSlide').length) {
+        $('#videoSlide').slick({
+          infinite: false,
+          prevArrow: '.btn-down',
+          nextArrow: '.btn-up',
+          responsive: [
+              {
+                breakpoint: 2000,
+                settings: {
+                  slidesToShow: 4,
+                  slidesToScroll: 1,
+                  infinite: true,
+                  vertical: true,
+                  dots: false
+                }
+              },
+              {
+                breakpoint: 992,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll:1,
+                  infinite:true,
+                  vertical:false,
+                }
+              },
+              {
+                breakpoint:600,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  vertical:false
+                }
+              }
+          ]
+      });
+    }
+
+})
+
+
+
+</script>
+
+{% endblock %}

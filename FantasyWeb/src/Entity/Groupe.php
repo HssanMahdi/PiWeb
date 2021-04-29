@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Groupe
  *
- * @ORM\Table(name="groupe")
- * @ORM\Entity(repositoryClass="App\Repository\GroupeRepository")
+ * @ORM\Table(name="groupe", indexes={@ORM\Index(name="FK_id_user", columns={"owner"})})
+ * @ORM\Entity
  */
 class Groupe
 {
@@ -23,7 +24,7 @@ class Groupe
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Le champ doit être remplit")
      * @ORM\Column(name="nom_groupe", type="text", length=65535, nullable=false)
      */
     private $nomGroupe;
@@ -35,10 +36,17 @@ class Groupe
      */
     private $owner;
 
+
+//    /**
+//     * @ORM\ManyToOne (targetEntity=User::class , inversedBy="ownedGroupe")
+//     * @ORM\JoinColumn(name="owner", referencedColumnName="idUser")
+//     */
+//    private $user;
+
     /**
      * @return int
      */
-    public function getIdGroupe(): int
+    public function getIdGroupe(): ?int
     {
         return $this->idGroupe;
     }
@@ -52,9 +60,9 @@ class Groupe
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNomGroupe(): string
+    public function getNomGroupe(): ? string
     {
         return $this->nomGroupe;
     }
@@ -62,10 +70,12 @@ class Groupe
     /**
      * @param string $nomGroupe
      */
-    public function setNomGroupe(string $nomGroupe): void
+    public function setNomGroupe(?string $nomGroupe): void
     {
         $this->nomGroupe = $nomGroupe;
     }
+
+
 
     /**
      * @return int
@@ -82,6 +92,8 @@ class Groupe
     {
         $this->owner = $owner;
     }
+
+
 
 
 }

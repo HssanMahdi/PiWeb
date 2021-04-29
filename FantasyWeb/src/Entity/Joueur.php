@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Joueur
- *
- * @ORM\Table(name="joueur", indexes={@ORM\Index(name="fk_id_equipe", columns={"id_equipe"})})
  * @ORM\Entity(repositoryClass="App\Repository\JoueurRepository")
+ * @ORM\Table(name="joueur", indexes={@ORM\Index(name="FK_id_equipe", columns={"id_equipe"})})
+ * @ORM\Entity
  */
 class Joueur
 {
@@ -23,28 +25,28 @@ class Joueur
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Nom non valide")
      * @ORM\Column(name="nom_joueur", type="text", length=65535, nullable=false)
      */
     private $nomJoueur;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Prenom non valide")
      * @ORM\Column(name="prenom_joueur", type="text", length=65535, nullable=false)
      */
     private $prenomJoueur;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message= "Position non valide")
      * @ORM\Column(name="position", type="text", length=65535, nullable=false)
      */
     private $position;
 
     /**
      * @var int|null
-     *
+     * @Assert\NotBlank(message= "Score non valide")
      * @ORM\Column(name="score_joueur", type="integer", nullable=true)
      */
     private $scoreJoueur;
@@ -58,105 +60,181 @@ class Joueur
 
     /**
      * @var int|null
-     *
+     * @Assert\NotBlank(message= "Prix non valide")
      * @ORM\Column(name="prix_joueur", type="integer", nullable=true)
      */
     private $prixJoueur;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="id_equipe", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity=Equipe::class)
+     * @Assert\NotBlank(message="Prix non valide")
+     * @ORM\JoinColumn(name="id_equipe", referencedColumnName="id_equipe")
      */
     private $idEquipe;
 
+    private $rating;
+    protected $captchaCode;
+
+    /**
+     * @return mixed
+     */
+    public function getCaptchaCode()
+    {
+        return $this->captchaCode;
+    }
+
+    /**
+     * @param mixed $captchaCode
+     */
+    public function setCaptchaCode($captchaCode): void
+    {
+        $this->captchaCode = $captchaCode;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating): void
+    {
+        $this->rating = $rating;
+    }
+
+
+    /**
+     * @return int
+     */
     public function getIdJoueur(): ?int
     {
         return $this->idJoueur;
     }
 
+    /**
+     * @param int $idJoueur
+     */
+    public function setIdJoueur(?int $idJoueur): void
+    {
+        $this->idJoueur = $idJoueur;
+    }
+
+    /**
+     * @return string
+     */
     public function getNomJoueur(): ?string
     {
         return $this->nomJoueur;
     }
 
-    public function setNomJoueur(string $nomJoueur): self
+    /**
+     * @param string $nomJoueur
+     */
+    public function setNomJoueur(?string $nomJoueur): void
     {
         $this->nomJoueur = $nomJoueur;
-
-        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getPrenomJoueur(): ?string
     {
         return $this->prenomJoueur;
     }
 
-    public function setPrenomJoueur(string $prenomJoueur): self
+    /**
+     * @param string $prenomJoueur
+     */
+    public function setPrenomJoueur(?string $prenomJoueur): void
     {
         $this->prenomJoueur = $prenomJoueur;
-
-        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getPosition(): ?string
     {
         return $this->position;
     }
 
-    public function setPosition(string $position): self
+    /**
+     * @param string $position
+     */
+    public function setPosition(?string $position): void
     {
         $this->position = $position;
-
-        return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getScoreJoueur(): ?int
     {
         return $this->scoreJoueur;
     }
 
-    public function setScoreJoueur(?int $scoreJoueur): self
+    /**
+     * @param int|null $scoreJoueur
+     */
+    public function setScoreJoueur(?int $scoreJoueur): void
     {
         $this->scoreJoueur = $scoreJoueur;
-
-        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getLogoJoueur(): ?string
     {
         return $this->logoJoueur;
     }
 
-    public function setLogoJoueur(?string $logoJoueur): self
+    /**
+     * @param string|null $logoJoueur
+     */
+    public function setLogoJoueur(?string $logoJoueur): void
     {
         $this->logoJoueur = $logoJoueur;
-
-        return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getPrixJoueur(): ?int
     {
         return $this->prixJoueur;
     }
 
-    public function setPrixJoueur(?int $prixJoueur): self
+    /**
+     * @param int|null $prixJoueur
+     */
+    public function setPrixJoueur(?int $prixJoueur): void
     {
         $this->prixJoueur = $prixJoueur;
-
-        return $this;
     }
 
-    public function getIdEquipe(): ?int
+    /**
+     * @return mixed
+     */
+    public function getIdEquipe()
     {
         return $this->idEquipe;
     }
 
-    public function setIdEquipe(?int $idEquipe): self
+    /**
+     * @param mixed $idEquipe
+     */
+    public function setIdEquipe( $idEquipe): void
     {
         $this->idEquipe = $idEquipe;
-
-        return $this;
     }
 
 

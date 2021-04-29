@@ -1,0 +1,50 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Statistique index{% endblock %}
+
+
+{% block westpage %}
+    <h1>Statistique </h1>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>photo</th>
+                <th>Nom</th>
+                <th>But</th>
+                <th>Assist</th>
+                <th>Clean</th>
+                <th>Numbery</th>
+                <th>Numberr</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for statistique in statistiques %}
+            <tr>
+                <td>{{ statistique.idJoueur.logoJoueur }}</td>
+                <td>{{ statistique.idJoueur.nomJoueur }}</td>
+                <td>{{ statistique.but }}</td>
+                <td>{{ statistique.assist }}</td>
+                <td>{{ statistique.clean }}</td>
+                <td>{{ statistique.numbery }}</td>
+                <td>{{ statistique.numberr }}</td>
+
+                <td>
+                    <a href="{{ path('statistique_show', {'idStatistique': statistique.idStatistique}) }}"class="btn btn-info">afficher</a>
+                    <a href="{{ path('statistique_edit', {'idStatistique': statistique.idStatistique}) }}"class="btn btn-info">editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('statistique_new') }}"class="btn btn-info">ajouter statistique</a>
+{% endblock %}

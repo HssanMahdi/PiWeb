@@ -1,0 +1,14 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Edit Actualites{% endblock %}
+
+{% block westpage %}
+
+    <h1>Editer Actualites</h1>
+
+    {{ include('actualites/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('actualites_index') }}"class="btn btn-info">retour</a>
+
+
+{% endblock %}

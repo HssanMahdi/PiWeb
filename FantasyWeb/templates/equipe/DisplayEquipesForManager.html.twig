@@ -1,0 +1,59 @@
+{% extends 'baseDashboard.html.twig' %}
+{% block westpage %}
+    <div class="pcoded-inner-content" xmlns="http://www.w3.org/1999/html">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- Page-body start -->
+                <div class="page-body">
+                    <!-- Basic table card start -->
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h5> <i class="fas fa-futbol" > &nbsp;&nbsp;Liste des Equipes</i></h5>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: #e02335;">L'équipe de Tunisie de football  </h5>
+
+                           <button type="button" class="btn btn-outline-dark">Site Officiel</button> &nbsp; &nbsp;
+                          <a href="{{ path('AddEquipe') }}" ><button type="button"  class="btn btn-outline-dark" href="{{ path('AddEquipe')}}">Ajouter Equipe</button></a>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        {% for e in equipe %}
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                        <img src="{{ asset('uploads/'~e.logoEquipe) }}" alt="image description" height="100px" width="90px">
+                                    <div class="d-inline-block">
+                                        <h5>{{e.getNomEquipe()}}</h5>
+                                        <i class="fas fa-hockey-puck "></i>&nbsp;Stade : {{ e.stade }}
+                                        <br>
+                                    </div>
+                                    <div class="pull-right">
+                                    <a href="{{ path('DisplayPlayersByid',{'id':e.getIdEquipe()}) }}"> <i class="fas fa-futbol fa-lg" ></i></a> &nbsp;
+                                    <a href="{{ path('DeleteEquipe',{'id':e.getIdEquipe()}) }}"> <i class="fa fa-trash fa-lg"  style="color:#e02335" ></i></a> &nbsp;&nbsp;
+                                    <a href="{{ path('UpdateEquipe',{'id':e.getIdEquipe()}) }}"> <i class="fas fa-edit fa-lg"   ></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Inverse table card end -->
+                    <!-- Hover table card start -->
+
+
+                </div>
+                <!-- Page-body end -->
+            </div>
+        </div>
+        <!-- Main-body end -->
+
+        <div id="styleSelector">
+
+        </div>
+    </div>
+{% endblock %}

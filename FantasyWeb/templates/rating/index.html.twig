@@ -1,0 +1,265 @@
+<!doctype html>
+{% block css %}
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zxx"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang="zxx"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang="zxx"> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang="zxx"> <!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fantasy Ligue 1</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="{{asset('apple-touch-icon.png')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/transitions.css')}}">
+    <link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
+    <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('css/customScrollbar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('css/color.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+
+
+</head>
+{% endblock %}
+<body>
+
+<!--************************************
+        Wrapper Start
+*************************************-->
+
+
+
+
+
+<!--************************************
+        Header 7atta 7ad
+*************************************-->
+{% block sidemenunav %}
+{% endblock %}
+{% block head %}
+    <header id="tg-header" class="tg-header tg-haslayout">
+        {% block sidemenu %}
+        {% endblock %}
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                <div class="row">
+
+                    <div class="tg-topbar tg-haslayout">
+                        <nav id="tg-topaddnav" class="tg-topaddnav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-addnavigationm-mobile">
+                                    <i class="fa fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <div id="tg-addnavigationm-mobile" class="tg-addnavigationm-mobile collapse navbar-collapse">
+                                {% block aelim %}
+                                <div class="tg-colhalf pull-right">
+                                    <nav class="tg-addnav">
+
+                                    </nav>
+
+                                </div>
+
+                                <div class="tg-colhalf">
+                                    <ul class="tg-socialicons">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    {% endblock %}
+                    <nav id="tg-nav" class="tg-nav brand-center">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-navigationm-mobile">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <strong class="tg-logo">
+                                <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+                            </strong>
+                        </div>
+                        <div id="tg-navigation" class="tg-navigation">
+                            <div class="tg-colhalf">
+                                <ul>
+                                    <li class="active">
+                                        <a href="{{ path('user') }}">Acceuil</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('DisplayEquipe') }}">Equipes</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('DisplayPlayers') }}">Joueurs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tg-colhalf">
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('statuser') }}">Statistiques</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('DisplayMatch') }}">matchs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">STORE</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+<!--************************************
+        Header End
+*************************************-->
+
+<!--************************************
+                Home Slider Start
+        *************************************-->
+{% block background %}
+    <div class="tg-sliderbox">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div id="tg-home-slider" class="tg-home-slider tg-haslayout">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="container">
+                        {% block bodyakhel %}
+                            <div class="tg-banner tg-haslayout">
+                                <div class="tg-imglayer">
+                                    <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+                                </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="tg-banner-content tg-haslayout">
+                                            <div class="tg-pagetitle">
+                                                <h1>Donnez Votre Avis</h1>
+                                            </div>
+                                            <ol class="tg-breadcrumb">
+
+                                                <li class="active">Rating</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!--************************************
+        Home Slider End
+*************************************-->
+{% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+                    <h2>Ajouter Rating</h2>
+                </div>
+                <div class="col-sm-push-4 col-xs-11 pull-right">
+                    <div class="row">
+                    <div class="rating" role="optgroup">
+                        <!-- in Rails just use 1.upto(5) -->
+                        <i class="fa fa-star-o fa-4x rating-star" id="rating-1" data-rating="1" tabindex="0" aria-label="Rate as one out of 5 stars" role="radio"></i>
+                        <i class="fa fa-star-o fa-4x rating-star" id="rating-2" data-rating="2" tabindex="0" aria-label="Rate as two out of 5 stars" role="radio"></i>
+                        <i class="fa fa-star-o fa-4x rating-star" id="rating-3" data-rating="3" tabindex="0" aria-label="Rate as three out of 5 stars" role="radio"></i>
+                        <i class="fa fa-star-o fa-4x rating-star" id="rating-4" data-rating="4" tabindex="0" aria-label="Rate as four out of 5 stars" role="radio"></i>
+                        <i class="fa fa-star-o fa-4x rating-star" id="rating-5" data-rating="5" tabindex="0" aria-label="Rate as five out of 5 stars" role="radio"></i>
+                    </div>
+                    <br><br>
+                    {{ form_start(form) }}
+                    {{ form_widget(form.ratingvalue, { 'attr': {'class': 'hidden'} }) }}
+                    {{ form_widget(form.ajouter, { 'attr': {'class': 'tg-btn','align':'center'} }) }}
+                    {{ form_end(form) }}
+                    </div>
+
+                </div>
+
+
+            </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block js %}
+
+<script src="{{asset('js/vendor/jquery-library.js')}}"></script>
+<script src="{{asset('js/vendor/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/customScrollbar.min.js')}}"></script>
+<script src="{{asset('js/owl.carousel.js')}}"></script>
+<script src="{{asset('js/isotope.pkgd.js')}}"></script>
+<script src="{{asset('js/prettyPhoto.js')}}"></script>
+<script src="{{asset('js/swiper.min.js')}}"></script>
+<script src="{{asset('js/jquery-ui.js')}}"></script>
+<script src="{{asset('js/countTo.js')}}"></script>
+<script src="{{asset('js/appear.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/javaScript.js')}}"></script>
+<script  type="text/javascript">
+
+
+
+        function setRating(rating) {
+            $('#rating_ratingvalue').val(rating);
+            // fill all the stars assigning the '.selected' class
+            $('.rating-star').removeClass('fa-star-o').addClass('selected');
+            // empty all the stars to the right of the mouse
+            $('.rating-star#rating-' + rating + ' ~ .rating-star').removeClass('selected').addClass('fa-star-o');
+        }
+        $('.rating-star')
+            .on('mouseover', function(e) {
+                var rating = $(e.target).data('rating');
+                // fill all the stars
+                $('.rating-star').removeClass('fa-star-o').addClass('fa-star');
+                // empty all the stars to the right of the mouse
+                $('.rating-star#rating-' + rating + ' ~ .rating-star').removeClass('fa-star').addClass('fa-star-o');
+            })
+            .on('mouseleave', function (e) {
+                // empty all the stars except those with class .selected
+                $('.rating-star').removeClass('fa-star').addClass('fa-star-o');
+            })
+            .on('click', function(e) {
+                var rating = $(e.target).data('rating');
+                setRating(rating);
+            })
+            .on('keyup', function(e){
+                // if spacebar is pressed while selecting a star
+                if (e.keyCode === 32) {
+                    // set rating (same as clicking on the star)
+                    var rating = $(e.target).data('rating');
+                    setRating(rating);
+                }
+
+
+
+
+
+    });
+
+
+</script>
+
+
+{% endblock %}

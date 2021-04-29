@@ -1,0 +1,54 @@
+{% extends 'User/User.html.twig' %}
+
+            {% block body %}
+            <main id="tg-main" class="tg-main tg-haslayout">
+                <section class="tg-main-section tg-haslayout">
+                    <div class="container">
+                        <div class="tg-section-name">
+                            <h2>statistque</h2>
+                        </div>
+                        <div class="col-sm-11 col-xs-11 pull-right">
+                            <div class="row">
+                                <div id="tg-comments" class="tg-comments">
+                                    <div class="tg-section-heading">
+                                        <h2>statistique</h2>
+                                    </div>
+                                     <table class="table">
+                                            <thead>
+                                                <tr>
+                                         <th>photo</th>
+                                       <th>Nom</th>
+                                       <th>But</th>
+                                      <th>Assist</th>
+                                              <th>Clean</th>
+                                         <th>Numbery</th>
+                                         <th>Numberr</th>
+
+
+                                             </tr>
+                                              </thead>
+                                               <tbody>
+                                      {% for statistique in statistiques %}
+                       <tr>
+                <td>   <figure> <img style="width:200px;height:180px" src="{{asset('uploads/'~statistique.idJoueur.logoJoueur)}}" alt="image description"></figure></td>
+                           <td>{{ statistique.idJoueur.nomJoueur }}_{{ statistique.idJoueur.PrenomJoueur }} </td>
+                <td>{{ statistique.but }}</td>
+                <td>{{ statistique.assist }}</td>
+                <td>{{ statistique.clean }}</td>
+                <td>{{ statistique.numbery }}</td>
+                <td>{{ statistique.numberr }}</td>
+
+                                </tr>
+                                  {% endfor %}
+                                </tbody>
+                                </table>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            {% endblock %}

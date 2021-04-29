@@ -28,7 +28,11 @@
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/color.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-    <script src="{{asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet'>
+
+
 </head>
 {% endblock %}
 <body>
@@ -107,26 +111,26 @@
                             <div class="tg-colhalf">
                                 <ul>
                                     <li class="active">
-                                        <a href="#">Acceuil</a>
+                                        <a href="{{ path('user') }}">Acceuil</a>
                                     </li>
                                     <li>
-                                        <a href="#">Equipes</a>
+                                        <a href="{{ path('DisplayEquipe') }}">Equipes</a>
                                     </li>
                                     <li>
-                                        <a href="#">Joueurs</a>
+                                        <a href="{{ path('DisplayPlayers') }}">Joueurs</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="tg-colhalf">
                                 <ul>
                                     <li>
-                                        <a href="#">Statistiques</a>
+                                        <a href="{{ path('statuser') }} ">Statistiques</a>
                                     </li>
                                     <li>
-                                        <a href="#">matchs</a>
+                                        <a href="{{ path('DisplayMatch') }}">matchs</a>
                                     </li>
                                     <li>
-                                        <a href="#">STORE</a>
+                                        <a href="{{ path('prod') }}">STORE</a>
                                     </li>
 
                                 </ul>
@@ -150,7 +154,7 @@
         <div class="tg-imglayer">
             <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
         </div>
-        <div id="tg-home-slider" class="tg-home-slider tg-haslayout">
+        <div id="tg-home-slider" class="tg-home-slider tg-haslayout" style="z-index: 0;">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="container">
@@ -166,6 +170,13 @@
             Home Slider End
     *************************************-->
 {% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+
+            </div>
+        </section>
+    </main>
 {% endblock %}
 
     <!--************************************
@@ -358,6 +369,14 @@
 <script src="{{asset('js/countTo.js')}}"></script>
 <script src="{{asset('js/appear.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/javaScript.js')}}"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js')}}"></script>
+<script src="{{ asset('code.jquery.com/jquery.js') }}"></script>
+<!-- Load Flashy default JavaScript -->
+<script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+<div style="z-index: 10">
+    {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+</div>
 </body>
 
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Edit Statistique{% endblock %}
+
+{% block westpage %}
+    <h1>Editer Statistique</h1>
+
+    {{ include('statistique/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('statistique_index') }}"class="btn btn-info">retour</a>
+
+
+{% endblock %}

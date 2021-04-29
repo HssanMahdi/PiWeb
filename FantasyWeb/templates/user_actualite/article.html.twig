@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+{% block sidemenunav %}
+    <!--************************************
+            SideBar Navigation Start
+    *************************************-->
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+    <div id="tg-sidenav" class="tg-sidenav">
+        <div id="tg-navscrollbar" class="tg-navscrollbar">
+            <strong class="tg-logo">
+                <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+            </strong>
+            <nav id="tg-nav" class="tg-nav">
+                <div id="tg-navigation" class="tg-navigation">
+                    <ul>
+                        <li >
+                            <a href="#">Groupes</a>
+                        </li>
+                         <li >
+                            <a href="#">actualites</a>
+                        </li>
+                         <li><a href="#">Formation</a></li>
+                        <li >
+                            <a href="#">Mon profile</a>
+                        </li>
+                        <li><a href="#">Déconnexion</a></li>
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+{% endblock %}
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+{% endblock %}
+{% block body %}
+    <div class="container">
+      <h2>{{ actualites.titre}} </h2>
+            <p class="date" >ecrit le {{ actualites.date ? actualites.date|date('d-m-Y') : '' }}</p>
+       <div class="img-fluid">
+
+         <img class="card-img-top" src="{{ vich_uploader_asset(actualites, 'imageFile') }}" class="card-img-top"
+              style="width: 100%; height: auto">
+       </div>
+         <div class="content">
+
+             <p class="content" >{{ actualites.description}} </p>
+
+             <div class="grix xs2 sm3 gutter-0 card">
+                 <div class="col-xs2 col-sm3">
+                     <h2>Liste des commentaires</h2>
+                     {% for comment in actualites.comments %}
+                         {% if comment.parent == null %}
+                             <h3>Commentaire de {{comment.nickname}}:</h3>
+                             <p>Publié le {{comment.createdAt|date("d/m/Y H:i") }}</p>
+                             <div >{{comment.content|raw}}</div>
+                             <p><a href="#ajout-commentaire" data-reply data-id="{{comment.id}}" class="btn primary press">Répondre</a></p>
+
+                             {# On affiche les réponses #}
+                             {% for reply in comment.replies %}
+                                 <p> -{{reply.nickname}} le {{reply.createdAt|date("d/m/Y H:i") }}:</p>
+                                 <div>{{reply.content|raw}}</div>
+                             {% endfor %}
+                         {% endif %}
+                     {% endfor %}
+                 </div>
+                 <div class="col-xs2 col-sm3" id="ajout-commentaire">
+                     <h2>Ajouter un commentaire</h2>
+                     {{ form(commentForm) }}
+                 </div>
+             </div>
+
+       </div>
+
+
+
+{% endblock %}
+{% block js %}
+        <script>
+        window.onload = () =>{document.querySelectorAll("[data-reply]").forEach(element => {
+				element.addEventListener("click", function(){
+					document.querySelector("#comments_parentid").value = this.dataset.id;
+				});
+			});}
+
+
+
+
+
+</script>
+
+
+{% endblock %}

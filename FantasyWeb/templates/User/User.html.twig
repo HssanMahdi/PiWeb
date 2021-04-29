@@ -21,14 +21,18 @@
             <nav id="tg-nav" class="tg-nav">
                 <div id="tg-navigation" class="tg-navigation">
                     <ul>
-                        <li >
-                            <a href="#">Groupes</a>
+                        <li class="tg-hasdropdown">
+                            <a href="{{ path('DisplayGroupes') }}">Groupes</a>
+								<ul>
+									<li><a href="{{ path('DisplayGroupes') }}">propriétaire</a></li>
+									<li><a href="{{ path('DisplayGroupesMem') }}">Membre</a></li>
+								</ul>
                         </li>
-                         <li><a href="#">Formation</a></li>
+                         <li><a href="{{ path('formation') }}">Formation</a></li>
                         <li >
-                            <a href="#">Mon profile</a>
+                            <a href="{{ path('DisplayPubUser') }}">highlights</a>
                         </li>
-                        <li><a href="#">Déconnexion</a></li>
+                        <li><a href="{{ path('user') }}">Déconnexion</a></li>
 
 
 

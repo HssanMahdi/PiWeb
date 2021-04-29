@@ -1,0 +1,137 @@
+{% extends 'baseDashboard.html.twig' %}
+{% block westpage %}
+    <div class="pcoded-inner-content" xmlns="http://www.w3.org/1999/html">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- Page-body start -->
+                <div class="page-body">
+                    <!-- Basic table card start -->
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h5> <i class="fas fa-futbol" > &nbsp;&nbsp;Liste des Adherents</i></h5>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        {% for e in user %}
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <img src="{{asset('images/user.png')}}" alt="image desctription" height="100px" width="90px">
+                                        &nbsp;&nbsp;
+                                        <div class="d-inline-block">
+
+                                            <h5>{{e.getNomUser() }}</h5>
+                                            <i class="fas fa-hockey-puck "></i>&nbsp;Email : {{e.getEmail() }}
+                                            <br>
+                                            <i class="fas fa-hockey-puck "></i>&nbsp;TypeUser : {{e.getTypeUser() }}
+
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="{{ path('del',{'idUser':e.getIdUser()}) }}"> <i class="fa fa-trash fa-lg" style="color:#e02335" ></i></a> &nbsp;&nbsp;
+                                            <a href="{{ path('update1',{'idUser':e.getIdUser()}) }}"> <i class="fas fa-edit fa-lg" ></i></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Inverse table card end -->
+                    <!-- Hover table card start -->
+
+
+                </div>
+                <!-- Page-body end -->
+            </div>
+        </div>
+        <!-- Main-body end -->
+
+        <div id="styleSelector">
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block menu %}
+    <nav class="pcoded-navbar">
+        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+        <div class="pcoded-inner-navbar main-menu">
+            <div class="">
+                <div class="main-menu-header">
+                    <img src="{{ asset('assets/images/log2.png') }}"  >
+                    <div class="user-details">
+                        <span id="more-details">Fantasy Web<i class="fa fa-caret-down"></i></span>
+                    </div>
+                </div>
+                <div class="main-menu-content">
+                    <ul>
+                        <li class="more-details">
+                            <a href="user-profile.html"><i class="ti-user"></i>Voir Profile</a>
+
+                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pcoded-navigation-label">Navigation</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="active">
+                    <a href="index.html" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                        <span class="pcoded-mtext">Dashboard</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="pcoded-navigation-label">Liste Des Admins</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="">
+                    <a href="{{ path('AfficheAd') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                        <span class="pcoded-mtext">Liste Des Admins</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="pcoded-navigation-label">Liste Des Managers</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="">
+                    <a href="{{ path('AfficheManager') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
+                        <span class="pcoded-mtext">Liste Des Managers</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="pcoded-navigation-label">Liste Des Adherents</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="">
+                    <a href="{{ path('Affiche') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
+                        <span class="pcoded-mtext">Liste Des Adherents</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="pcoded-navigation-label">Store</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="">
+                    <a href="#" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
+                        <span class="pcoded-mtext">Store</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+    </nav>
+{% endblock %}

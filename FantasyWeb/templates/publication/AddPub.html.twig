@@ -1,0 +1,44 @@
+{% extends 'baseDashboard.html.twig' %}
+{% block westpage %}
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Basic Form Inputs card start -->
+            <div class="card">
+                <div class="card-header">
+                    <h5>Ajouter une Highlights</h5>
+
+                </div>
+                <div class="card-block">
+                    <h4 class="sub-title">Remplir Les Champs</h4>
+                    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Nom Highlights</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.videoname) }}
+                            {{ form_widget(form.videoname, { 'attr': {'class': 'form-control','placeholder': ' Nom '} }) }}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="color:#e40505;">Téleverser Highlights</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.url) }}
+                            {{ form_widget(form.url, { 'attr': {'class': 'form-control','placeholder': 'Vidéo'} }) }}
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div align="center">
+                        {{ form_widget(form.Valider, { 'attr': {'class': 'btn btn-outline-danger'} }) }}
+                    </div>
+
+                    {{ form_end(form) }}
+
+
+                </div>
+            </div>
+            <!-- Basic Form Inputs card end -->
+        </div>
+    </div>
+{% endblock %}

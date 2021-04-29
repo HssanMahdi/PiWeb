@@ -1,0 +1,41 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Statistique{% endblock %}
+{% block westpage %}
+    <h1>Statistique</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>nom joueur</th>
+                <td>{{ statistique.idJoueur.nomJoueur }}</td>
+            </tr>
+            <tr>
+                <th>But</th>
+                <td>{{ statistique.but }}</td>
+            </tr>
+            <tr>
+                <th>Assist</th>
+                <td>{{ statistique.assist }}</td>
+            </tr>
+            <tr>
+                <th>Clean</th>
+                <td>{{ statistique.clean }}</td>
+            </tr>
+            <tr>
+                <th>Numbery</th>
+                <td>{{ statistique.numbery }}</td>
+            </tr>
+            <tr>
+                <th>Numberr</th>
+                <td>{{ statistique.numberr }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('statistique_index') }}"class="btn btn-info">retour</a>
+
+
+
+    {{ include('statistique/_delete_form.html.twig') }}
+{% endblock %}

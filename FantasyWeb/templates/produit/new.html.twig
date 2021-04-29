@@ -1,0 +1,123 @@
+{% extends 'baseDashboard.html.twig' %}
+
+                                    {% block westpage %}
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <!-- Basic Form Inputs card start -->
+        <div class="card">
+            <div class="card-header">
+                <h5>Cree produit</h5>
+
+            </div>
+
+                                            {{ include('produit/_form.html.twig') }}
+
+
+                                            <a href="{{ path('produit_index') }}">back to list</a>
+
+
+</div>
+    </div>
+
+
+
+
+
+
+                                    {% endblock %}
+
+
+
+
+
+
+
+{#{% block menu %}#}
+{#    <nav class="pcoded-navbar">#}
+{#        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>#}
+{#        <div class="pcoded-inner-navbar main-menu">#}
+{#            <div class="">#}
+{#                <div class="main-menu-header">#}
+{#                    <img src="{{ asset('assets/images/log2.png') }}"  >#}
+{#                    <div class="user-details">#}
+{#                        <span id="more-details">Fantasy Web<i class="fa fa-caret-down"></i></span>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="main-menu-content">#}
+{#                    <ul>#}
+{#                        <li class="more-details">#}
+{#                            <a href="user-profile.html"><i class="ti-user"></i>Voir Profile</a>#}
+
+{#                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Déconnexion</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+
+{#            <div class="pcoded-navigation-label">Navigation</div>#}
+{#            <ul class="pcoded-item pcoded-left-item">#}
+{#                <li class="active">#}
+{#                    <a href="index.html" class="waves-effect waves-dark">#}
+{#                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>#}
+{#                        <span class="pcoded-mtext">Dashboard</span>#}
+{#                        <span class="pcoded-mcaret"></span>#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+
+{#            <div class="pcoded-navigation-label">Liste Des Admins</div>#}
+{#            <ul class="pcoded-item pcoded-left-item">#}
+{#                <li class="">#}
+{#                    <a href="{{ path('AfficheAd') }}" class="waves-effect waves-dark">#}
+{#                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>#}
+{#                        <span class="pcoded-mtext">Liste Des Admins</span>#}
+{#                        <span class="pcoded-mcaret"></span>#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+{#            <div class="pcoded-navigation-label">Liste Des Managers</div>#}
+{#            <ul class="pcoded-item pcoded-left-item">#}
+{#                <li class="">#}
+{#                    <a href="{{ path('AfficheManager') }}" class="waves-effect waves-dark">#}
+{#                        <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>#}
+{#                        <span class="pcoded-mtext">Liste Des Managers</span>#}
+{#                        <span class="pcoded-mcaret"></span>#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+{#            <div class="pcoded-navigation-label">Liste Des Adherents</div>#}
+{#            <ul class="pcoded-item pcoded-left-item">#}
+{#                <li class="">#}
+{#                    <a href="{{ path('Affiche') }}" class="waves-effect waves-dark">#}
+{#                        <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>#}
+{#                        <span class="pcoded-mtext">Liste Des Adherents</span>#}
+{#                        <span class="pcoded-mcaret"></span>#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+{#            <div class="pcoded-navigation-label">Store</div>#}
+{#            <ul class="pcoded-item pcoded-left-item">#}
+{#                <li class="">#}
+{#                    <a href="#" class="waves-effect waves-dark">#}
+{#                        <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>#}
+{#                        <span class="pcoded-mtext">Store</span>#}
+{#                        <span class="pcoded-mcaret"></span>#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+
+
+{#        </div>#}
+{#    </nav>#}
+{#{% endblock %}#}

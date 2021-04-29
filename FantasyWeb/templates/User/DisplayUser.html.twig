@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>La liste des joueurs</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">La liste des joueurs</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <!--************************************
+                Top Rated Player Start
+        *************************************-->
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+                    <h2>La liste des joueurs</h2>
+                </div>
+                <div class="col-sm-11 col-xs-11 pull-right">
+                 	<div class="row">
+									<div class="col-md-7 col-sm-12 col-xs-12">
+										<div id="tg-playerscrollbar" class="tg-players tg-playerscrollbar">
+											{% for u in user %}
+											<div class="tg-player">
+												<div class="col-sm-6 col-xs-6 pull-right">
+													<div class="tg-playcontent">
+
+														<h3><a href="#">{{ u.getNomUser() }}</a></h3>
+
+														<div class="tg-description">
+															<h5>{{ u.getemail() }}</h5>
+															<h4>{{ u.getpassword() }}</h4>
+														</div>
+
+													</div>
+												</div>
+												<div class="col-sm-6 col-xs-6">
+													<figure>
+														<a href="#">
+															<img src="images/player/img-03.png" alt="image description">
+														</a>
+													</figure>
+												</div>
+											</div>
+											{% endfor %}
+										</div>
+									</div>
+									<div class="col-md-5 col-sm-12 col-xs-12">
+										<div class="tg-contentbox">
+											<div class="tg-section-heading"><h2>Liste des utilisateurs</h2></div>
+											<div class="tg-description">
+												<p></p>
+											</div>
+											<div class="tg-btnbox">
+												<a class="tg-btn" href="#"><span>view all</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+{% block sidemenunav %}
+    <!--************************************
+            SideBar Navigation Start
+    *************************************-->
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+    <div id="tg-sidenav" class="tg-sidenav">
+        <div id="tg-navscrollbar" class="tg-navscrollbar">
+            <strong class="tg-logo">
+                <a href="#"><img src="{{asset('images/logo.png')}}" alt="image description"></a>
+            </strong>
+            <nav id="tg-nav" class="tg-nav">
+                <div id="tg-navigation" class="tg-navigation">
+                    <ul>
+                        <li >
+                            <a href="#">Ajouter Matchs</a>
+                        </li>
+                        <li >
+                            <a href="#">Ajouter Highlights</a>
+                        </li>
+                        <li><a href="#">Mon Profile</a></li>
+                        <li><a href="#">Déconnexion</a></li>
+
+
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+{% endblock %}
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+{% endblock %}

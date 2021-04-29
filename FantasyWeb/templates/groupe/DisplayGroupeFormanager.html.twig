@@ -1,0 +1,47 @@
+{% extends 'baseDashboard.html.twig' %}
+{% block westpage %}
+    <div class="pcoded-inner-content" xmlns="http://www.w3.org/1999/html">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- Page-body start -->
+                <div class="page-body">
+                    <!-- Basic table card start -->
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h5> <i class="fas fa-futbol" > &nbsp;&nbsp;Listes des Groupes</i></h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        {% for g in groupe %}
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <img src="{{ asset('uploads/groupe.png')}}" alt="image description" height="100px" width="90px">
+                                        &nbsp;&nbsp;
+                                        <div class="d-inline-block" align="center">
+                                            <h5>Nom : {{g.nomGroupe}}</h5>
+                                        </div>&nbsp;
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Inverse table card end -->
+                    <!-- Hover table card start -->
+
+
+                </div>
+                <!-- Page-body end -->
+            </div>
+        </div>
+        <!-- Main-body end -->
+
+        <div id="styleSelector">
+
+        </div>
+    </div>
+{% endblock %}

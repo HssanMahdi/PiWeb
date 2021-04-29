@@ -1,0 +1,84 @@
+{% extends 'baseDashboard.html.twig' %}
+{% block westpage %}
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+
+                <!-- Basic table card start -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5> <i class="fas fa-futbol" > &nbsp;&nbsp;Liste des Joueurs</i></h5>
+                        <div class="pull-right"><a href="{{ path('AddPlayer') }}"><button  class="btn btn-outline-dark"><i class="fa fa-check-square-o fa-lg" ></i>Ajouter</button></a>
+                            <a href="{{ path('DisplayListe') }}"><button  class="btn btn-outline-danger"><i class="fa fa-check-square-o fa-lg" ></i>PDF</button></a>
+                        <a href="{{ path('testexcel') }}"><button  class="btn btn-outline-success"><i class="fa fa-check-square-o fa-lg" ></i>Excel</button></a>
+                            <a href="{{ path('testWord') }}"><button  class="btn btn-outline-primary"><i class="fa fa-check-square-o fa-lg" ></i>Word</button></a></div>
+
+{#                        <div class="card-header-right">#}
+{#                            <ul class="list-unstyled card-option">#}
+{#                                <li><i class="fa fa fa-wrench open-card-option"></i></li>#}
+{#                                <li><i class="fa fa-window-maximize full-card"></i></li>#}
+{#                                <li><i class="fa fa-minus minimize-card"></i></li>#}
+{#                                <li><i class="fa fa-refresh reload-card"></i></li>#}
+{#                                <li><i class="fa fa-trash close-card"></i></li>#}
+{#                            </ul>#}
+{#                        </div>#}
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table">
+
+                                <thead class="table-light">
+                                <tr>
+                                    <th style="color: #e02335;" ><h6>Logo</h6></th>
+                                    <th style="color: #e02335;"><h6>Nom</h6></th>
+                                    <th style="color: #e02335;"><h6>Prenom</h6></th>
+                                    <th style="color: #e02335;"><h6>Position</h6></th>
+                                    <th style="color: #e02335;"><h6>Score</h6></th>
+                                    <th style="color: #e02335;"><h6>Prix</h6></th>
+                                    <th style="color: #e02335;"><h6>Equipe</h6></th>
+                                    <th style="color: #e02335;"><h6>Action</h6></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for j in joueur %}
+                                <tr>
+
+                                    <th scope="row"><img class="img-wid" src="{{ asset('uploads/'~j.logoJoueur) }}"  alt="image description" ></th>
+
+                                    <td>{{j.nomJoueur}}</td>
+                                    <td>{{j.prenomJoueur}}</td>
+                                    <td>{{j.position}}</td>
+                                    <td>{{j.scoreJoueur}}</td>
+                                    <td>{{j.prixJoueur}}</td>
+                                    <td>{{j.idEquipe}}</td>
+                                    <td>
+                                        <a href="{{ path('UpdatePlayer',{'id':j.idJoueur}) }}"> <i class="fa fa-edit  fa-lg"  style="color:#e02335" ></i></a> &nbsp;&nbsp;
+                                        <a href="{{ path('DeletePlayer',{'id':j.idJoueur}) }}"> <i class="fas fa-trash fa-lg"   ></i></a>
+                                       </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inverse table card end -->
+                <!-- Hover table card start -->
+
+
+            </div>
+            <!-- Page-body end -->
+        </div>
+    </div>
+    <!-- Main-body end -->
+
+    <div id="styleSelector">
+
+    </div>
+</div>
+
+{% endblock %}

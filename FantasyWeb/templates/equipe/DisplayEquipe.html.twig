@@ -1,0 +1,96 @@
+{% extends 'User/User.html.twig' %}
+
+{% block bodyakhel %}
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>La liste des équipes</h1>
+                    </div>
+                    <ol class="tg-breadcrumb">
+
+                        <li class="active">La liste des équipes</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <!--************************************
+                Top Rated Player Start
+        *************************************-->
+        <section class="tg-main-section tg-haslayout">
+            <div class="container">
+                <div class="tg-section-name">
+                    <h2>La liste des équipes</h2>
+                </div>
+                <div class="col-sm-11 col-xs-11 pull-right">
+                    <div class="row">
+                        <div class="tg-topratedplayer tg-haslayout">
+                                <div class="row">
+                                    <div class="col-md-7 col-sm-12 col-xs-12">
+                                        <div id="tg-playerscrollbar" class="tg-players tg-playerscrollbar">
+                                        {% for e in equipe %}
+                                            <div class="tg-player">
+                                                <div class="col-sm-6 col-xs-6 pull-right">
+                                                    <div class="tg-playcontent">
+
+                                                        <h3><a>{{e.getNomEquipe()}}</a></h3>
+                                                         <br> <br>
+                                                        <div class="tg-description">
+                                                            <a href="{{ path('maps') }}">{{e.getStade()}}</a>
+                                                        </div>
+                                                        <a href="{{ path('DisplayPlayersForEquipe',{'id':e.getIdEquipe()}) }}"><div class="tg-theme-tag">Les Joueurs</div></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6">
+                                                    <figure>
+                                                        <a href="#">
+                                                            <img src="{{ asset('uploads/'~e.logoEquipe) }}" alt="image description" width="130px">
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                             {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-12 col-xs-12">
+                                        <div class="tg-contentbox">
+                                            <div class="tg-section-heading"><h2>Fédération Tunisienne de Football</h2></div>
+                                            <div class="tg-description">
+                                                <p>L'équipe de Tunisie de football (منتخب تونس لكرة القدم) est l'équipe nationale représentant la Tunisie dans le football international masculin depuis son premier match en 19573. Elle est régie par la Fédération tunisienne de football, fondée après l'indépendance du pays en 1956.</p>
+                                            </div>
+                                            <div class="tg-btnbox">
+                                                <a class="tg-btn" href="https://www.ftf.org.tn/fr/category/equipe-nationale/"><span>Site Officiel</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                    </div>
+
+        </section>
+    </main>
+{% endblock %}
+{% block aelim %}
+    <div class="tg-colhalf pull-right">
+        <nav class="tg-addnav">
+            <ul>
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+
+{% block sidemenu %}
+
+        <button id="tg-btnnav" class="tg-btnnav"><span></span></button>
+{% endblock %}

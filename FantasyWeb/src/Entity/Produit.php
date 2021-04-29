@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups ;
 
 /**
  * Produit
- *
+ * @ORM\Entity(repositoryClass="App\Repository\ProduitRepository")
  * @ORM\Table(name="produit", indexes={@ORM\Index(name="FK_categorie", columns={"id_categorie"})})
- * @ORM\Entity
+
  */
 class Produit
 {
@@ -18,20 +19,23 @@ class Produit
      * @ORM\Column(name="id_produit", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("posts:read")
      */
     private $idProduit;
 
     /**
-     * @var int
-     *
+     * @var int*
      * @ORM\Column(name="id_categorie", type="integer", nullable=false)
+     * @Groups("posts:read")
      */
     private $idCategorie;
+
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom_produit", type="string", length=255, nullable=false)
+     * @Groups("posts:read")
      */
     private $nomProduit;
 
@@ -39,6 +43,7 @@ class Produit
      * @var string
      *
      * @ORM\Column(name="nom_categorie", type="string", length=255, nullable=false)
+     * @Groups("posts:read")
      */
     private $nomCategorie;
 
@@ -46,6 +51,7 @@ class Produit
      * @var float
      *
      * @ORM\Column(name="prix_unitaire", type="float", precision=10, scale=0, nullable=false)
+     * @Groups("posts:read")
      */
     private $prixUnitaire;
 
@@ -53,6 +59,7 @@ class Produit
      * @var int
      *
      * @ORM\Column(name="quantite", type="integer", nullable=false)
+     * @Groups("posts:read")
      */
     private $quantite;
 
@@ -60,6 +67,7 @@ class Produit
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     * @Groups("posts:read")
      */
     private $image;
 
@@ -67,8 +75,10 @@ class Produit
      * @var string
      *
      * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     * @Groups("posts:read")
      */
     private $description;
+
 
     public function getIdProduit(): ?int
     {
@@ -135,12 +145,12 @@ class Produit
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage($image)
     {
         $this->image = $image;
 
@@ -158,6 +168,8 @@ class Produit
 
         return $this;
     }
+
+
 
 
 }
